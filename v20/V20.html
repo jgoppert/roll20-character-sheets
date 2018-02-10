@@ -1575,24 +1575,6 @@ function xpCost(k, new_cost, b, f, xp) {
   return cost;
 }
 
-function update_xp() {
-  getAttrs(xp_deps, function(v) {
-    console.log("updating xp");
-    var cost = 0;
-    for (l in lists) {
-      for (x in lists[l]) {
-        var name = lists[l][x];
-        var type = types[l];
-        var b = parseInt(v[name + "_base"], 10);
-        var f = parseInt(v[name + "_free"], 10);
-        var xp = parseInt(v[name + "_xp"], 10);
-        cost += xpCost(type, b, f, xp);
-      }
-    }
-    setAttrs({xp: cost});
-  });
-}
-
 function attach_property(name) {
   console.log("attaching property " + name);
   var tot_deps = [
@@ -1604,6 +1586,8 @@ function attach_property(name) {
     name + "_radio",
     name + "_tot"
   ];
+
+  // update total if deps change
   on(list_changed(tot_deps) + " sheet:opened", function() {
     console.log(name + " total deps changed");
     getAttrs(tot_deps, function(v) {
@@ -1617,6 +1601,8 @@ function attach_property(name) {
       setAttrs(set_d);
     });
   });
+
+  // update xp, base, free if radio changes
   on("change:" + name + "_radio", function() {
     console.log(name + " radio changed");
     getAttrs([].concat(radio_deps, tot_deps), function(v) {
@@ -1642,6 +1628,8 @@ function attach_property(name) {
       setAttrs(set_d);
     });
   });
+
+  // update radio if total changes
   on("change:" + name + "_tot", function() {
     console.log(name + " total changed");
     getAttrs([].concat(radio_deps, tot_deps), function(v) {
@@ -1795,6 +1783,8 @@ on("change:repeating_disciplines", function(eventInfo) {
   });
 });
 */
+
+// vim: set et fenc=utf-8 ff=unix ft=javascript sts=0 sw=2 ts=2 :
 
 </script>
 
