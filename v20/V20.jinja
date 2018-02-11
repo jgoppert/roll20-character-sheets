@@ -69,9 +69,9 @@
       <tr >
         <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
       {% for name in ["base", "free", "xp"] %}
-        <input name="attr_{{ name }}_{{ type }}" value="0" type="hidden" />
-        <td style="border-top: solid; border-width: 1px 0;"><input name="attr_{{ name }}_{{ type }}_disp" title="{{ type|title }} {{ name }}"
-        value="@{{'{'}}{{  name }}_{{ type }}{{'}'}}" type="number" disabled="true"/></td>
+        <input name="attr_{{ type }}_{{ name }}" value="0" type="hidden" />
+        <td style="border-top: solid; border-width: 1px 0;"><input name="attr_{{ type }}_{{ name }}_disp" title="{{ type|title }} {{ name }}"
+        value="@{{'{'}}{{ type }}_{{ name }}{{'}'}}" type="number" disabled="true"/></td>
       {% endfor %}
         <td></td>
       </tr>
@@ -90,14 +90,19 @@
 
 <body>
 
-<!-- Character Sheet Header -->
 <div class="sheet-page">
-  <h1>{{ d.title }}</h1>
-  <h4>{{ d.subtitle }}</h4>
 
+  <!-- Title -->
+  <div style="display: inline-block;">
+    <h1>{{ d.title }}</h1>
+    <h4>{{ d.subtitle }}</h4>
+  </div>
+  <br />
+
+  <!-- Basics -->
   <div class="sheet-divrow">
     <h2 style="display: inline-block;">Basics</h2>
-    <input title="hide" name="attr_{{ section }}_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
+    <input title="hide" name="attr_basics_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
       {%- for col in d.header %}
@@ -106,7 +111,7 @@
           {%- for field in d.header[col].fields %}
           <tr>
             <th>{{ field|title }}</th>
-            <td><input class="prop_val" title="{{ field }}" type="text" name="attr_{{ field }}" /></td>
+            <td><input class="prop_val" title="{{ field }}" type="text" name="attr_{{ field }}"/></td>
           </tr>
           {%- endfor %}
         </table>
@@ -117,10 +122,49 @@
     </div>
   </div>
 
+  <!-- Stats -->
+  <div class="sheet-divrow">
+    <h2 style="display: inline-block;">Stats</h2>
+    <input title="hide" name="attr_stats_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
+    <br />
+    <div class="sheet-block-a" style="width: 10em">
+      <table width="10em">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Spent</th>
+            <th></th>
+            <th>Avail</th>
+          </tr>
+        </thead>
+        <input name="attr_total_xp" value="0" type="hidden"/>
+        <tr>
+          <th>Xp</th>
+          <td><input name="attr_total_xp_disp" value="@{total_xp}" title="xp spent" type="number" disabled="true"/></td>
+          <td>/</td>
+          <td><input name="attr_xp_avail" value="0" title="xp available" type="number"/></td>
+        </tr>
+        <input name="attr_total_free" value="0" type="hidden"/>
+        <tr>
+          <th>Free</th>
+          <td><input name="attr_total_free_disp" value="@{total_free}}" title="free spent" type="number" disabled="true"/></td>
+          <td>/</td>
+          <td><input name="attr_free_avail" value="15" title="freebie points available" type="number" disabled="true"/></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sheet-block-b">
+    </div>
+  </div>
+
   <!-- Character Sheet Sections -->
-  {% for section in d.sections.fields %}
+  {%- for section in d.sections.fields %}
+  <!-- Section {{ section|title }} -->
   <div class="sheet-divrow">
     <h2 style="display: inline-block;">{{ section|title }}</h2>
+    {% for name in ["base", "free", "xp"] %}
+    <input name="attr_{{ section }}_{{ name }}" value="0" type="hidden" />
+    {% endfor %}
     <input title="hide" name="attr_{{ section }}_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
@@ -136,20 +180,7 @@
     </div>
   </div>
   {% endfor %}
-  <div class="sheet-divrow">
-    <h2 style="display: inline-block;width: 100%;">Experience</h2>
-    <table>
-      <tr>
-        {% for type in ["free", "xp"] %}
-        <td>{{ type | title }}</td>
-        <td>
-          <input name="attr_{{ type }}" value="0" type="hidden" />
-          <input name="attr_{{ type }}_disp" value="@{{'{'}}{{ type }}{{'}'}}" title="{{ type }}" type="number" disabled="true"/>
-        </td>
-        {% endfor %}
-      </tr>
-    </table>
-  </div>
+
 </div>
 
 <script type="text/worker">

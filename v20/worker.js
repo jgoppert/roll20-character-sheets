@@ -18,8 +18,41 @@ function xpCost(k, new_cost, b, f, xp) {
   return cost;
 }
 
+function attach_field_sum(name, fields, postfix) {
+  var deps = Object.keys(fields).map(x => x + "_" + postfix);
+  on(list_changed(deps), function(eventInfo) {
+    console.log(name, postfix, "deps changed");
+    getAttrs(deps, function(v) {
+      var d = {};
+      var cost = 0;
+      for (field in fields) {
+        cost += parseInt(v[field + "_" + postfix], 10);
+      }
+      d[name + "_" + postfix] = cost;
+      setAttrs(d);
+      console.log(d);
+    });
+  });
+}
+
+// free
+var free_deps = Object.keys(data.sections.fields).map(x => x + "_free");
+on(list_changed(free_deps), function(eventInfo) {
+  console.log("free deps changed");
+  getAttrs(free_deps, function(v) {
+    var d = {};
+    var cost = 0;
+    for (name in data.sections.fields) {
+      cost += parseInt(v[name + "_free"], 10);
+    }
+    d["free"] = cost;
+    setAttrs(d);
+    console.log(d);
+  });
+});
+
 function attach_property(name) {
-  console.log("attaching property " + name);
+  //console.log("attaching property " + name);
   var tot_deps = [
     name + "_base",
     name + "_free",
@@ -86,6 +119,13 @@ function attach_property(name) {
 }
 
 function attach_type(key_type, type) {
+  console.log("attaching type", key_type);
+
+  // handle no field case
+  if (type.fields === undefined) {
+    type.fields = {};
+  }
+
   // properties
   for (var key_prop in type.fields) {
     attach_property(key_prop);
@@ -102,7 +142,7 @@ function attach_type(key_type, type) {
         base += parseInt(v[base_deps[i]], 10);
       }
       base -= Object.keys(type.fields).length*type.initial_base;
-      d["base_" + key_type] = base;
+      d[key_type + "_base"] = base;
       setAttrs(d);
       console.log(d);
     });
@@ -118,7 +158,7 @@ function attach_type(key_type, type) {
       for (i in free_deps) {
         cost += type.free_cost*parseInt(v[free_deps[i]], 10);
       }
-      d["free_" + key_type] = cost;
+      d[key_type + "_free" ] = cost;
       setAttrs(d);
       console.log(d);
     });
@@ -126,7 +166,6 @@ function attach_type(key_type, type) {
 
   // xp
   var xp_deps = [].concat(...Object.keys(type.fields).map(x => [x + "_xp", x + "_base", x + "_free"]));
-  console.log('xp_deps', xp_deps);
   on(list_changed(xp_deps), function() {
     console.log(key_type + " xp deps changed");
     getAttrs(xp_deps, function(v) {
@@ -138,7 +177,7 @@ function attach_type(key_type, type) {
         var xp = parseInt(v[name + "_xp"], 10);
         cost += xpCost(type.mult_xp_cost, type.new_xp_cost, b, f, xp);
       }
-      d["xp_" + key_type] = cost;
+      d[key_type + "_xp"] = cost;
       setAttrs(d);
       console.log(d);
     });
@@ -147,18 +186,37 @@ function attach_type(key_type, type) {
 
 function attach_section(name, section) {
   console.log("attaching section", name);
+
+  // handle no field case
+  if (section.fields === undefined) {
+    section.fields = {};
+  }
+
   for (var key_type in section.fields) {
     var type = section.fields[key_type];
     attach_type(key_type, type);
   }
+
+  // update field sums
+  attach_field_sum(name, section.fields, "xp");
+  attach_field_sum(name, section.fields, "free");
 }
 
 function attach_data(data) {
   console.log("attaching data");
+
+  if (data.sections.fields === undefined) {
+    data.sections.fields = {};
+  }
+
   for (var key_sect in data.sections.fields) {
     var sect = data.sections.fields[key_sect];
     attach_section(key_sect, sect);
   }
+
+  // update field sums
+  attach_field_sum("total", data.sections.fields, "xp");
+  attach_field_sum("total", data.sections.fields, "free");
 }
 
 attach_data(data);

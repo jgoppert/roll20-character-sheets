@@ -137,21 +137,23 @@
             "val_max": 5,
             "val_start": 1,
             "initial_base": 1,
-            "fields": {
-              "conscience": {},
-              "self_control": {},
-              "courage": {}
-            }
+
+            "conscience": {},
+            "self_control": {},
+            "courage": {}
           }
         }
       },
       "pools": {
         "fields": {
           "humanity": {
+            "fields": {}
           },
           "willpower": {
+            "fields": {}
           },
           "blood": {
+            "fields": {}
           }
         }
       }

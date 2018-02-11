@@ -12,16 +12,21 @@
 }
 
 h1 {
+  display: inline-block;
+  line-height: 1em;
   margin: 2px;
   text-align: center;
 }
 
 h2 {
+  display: inline-block;
+  line-height: 1em;
   margin: 2px;
   text-align: center;
 }
 
 h3, h4 {
+  line-height: 1em;
   margin: 0;
   text-align: center;
 }
@@ -70,12 +75,12 @@ td {
 }
 
 .sheet-divrow {
+  /*border: 0.1em solid lightgray;*/
   display: inline-block;
   padding-bottom: 5px;
   padding-top: 5px;
   text-align: center;
   vertical-align: top;
-  width: 100%;
 }
 
 .sheet-divcol {
