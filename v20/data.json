@@ -137,10 +137,11 @@
             "val_max": 5,
             "val_start": 1,
             "initial_base": 1,
-
-            "conscience": {},
-            "self_control": {},
-            "courage": {}
+            "fields": {
+              "conscience": {},
+              "self_control": {},
+              "courage": {}
+            }
           }
         }
       },
