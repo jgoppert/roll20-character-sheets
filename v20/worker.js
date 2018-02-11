@@ -27,7 +27,7 @@ function attach_property(name) {
   ];
   var radio_deps = [
     name + "_radio",
-    name + "_tot"
+    name
   ];
 
   // update total if deps change
@@ -40,7 +40,7 @@ function attach_property(name) {
       var xp = parseInt(v[name + "_xp"], 10);
       var tot = b + f + xp;
       console.log("updating total for " + name + ", b:", b, " f:", f, " xp:", xp)
-      set_d[name + "_tot"] = tot;
+      set_d[name] = tot;
       setAttrs(set_d);
     });
   });
@@ -73,11 +73,11 @@ function attach_property(name) {
   });
 
   // update radio if total changes
-  on("change:" + name + "_tot", function() {
+  on("change:" + name, function() {
     console.log(name + " total changed");
     getAttrs([].concat(radio_deps, tot_deps), function(v) {
       set_d = {};
-      var tot = parseInt(v[name + "_tot"], 10);
+      var tot = parseInt(v[name], 10);
       console.log("updating radio for " + name + " tot:", tot);
       set_d[name + "_radio"] = tot;
       setAttrs(set_d);

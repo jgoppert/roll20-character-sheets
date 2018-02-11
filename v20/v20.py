@@ -3,25 +3,24 @@ import json
 from collections import OrderedDict
 from jinja2 import Environment, FileSystemLoader
 
-def flatten_tree(tree):
+def flatten_tree(tree, props=None):
     # flatten properties in json tree
-    props = tree["sections"].keys()
-    props.remove("fields")
-    root = tree["sections"]
-    for sect_name, sect in root["fields"].iteritems():
+    if props is None:
+        props = tree.keys()
+        props.remove("fields")
+    if "fields" not in tree.keys():
+        return
+    for field_name, field in tree["fields"].iteritems():
         for prop in props:
-            if prop in root.keys() and not prop in sect.keys():
-                sect[prop] = root[prop];
-        for type_name, type in sect["fields"].iteritems():
-            for prop in props:
-                if prop in sect.keys() and not prop in type.keys():
-                    type[prop] = sect[prop]
+            if prop in tree.keys() and not prop in field.keys():
+                field[prop] = tree[prop];
+        flatten_tree(field, props);
 
 with open('data.json', 'r') as f:
     json_txt = f.read()
     data = json.loads(json_txt, object_pairs_hook=OrderedDict)
     # flatten properties to make rendering easier and json non-cluttered
-    flatten_tree(data);
+    flatten_tree(data["sections"]);
     # print, removing all white space
     data['json_txt'] = json.dumps(data, separators=(',',':'))
 

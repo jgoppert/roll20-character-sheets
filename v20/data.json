@@ -33,9 +33,10 @@
     "val_max": 10,
     "initial_base": 0,
     "nameable": false,
+    "field_type": "bar",
+    "base_calc": "",
     "fields": {
       "attributes": {
-        "singular": "attribute",
         "free_cost": 5,
         "mult_xp_cost": 4,
         "val_start": 1,
@@ -65,13 +66,11 @@
         }
       },
       "abilities": {
-        "singular": "ability",
         "free_cost": 2,
         "mult_xp_cost": 2,
         "new_xp_cost": 3,
         "fields": {
           "talents": {
-            "singular": "talent",
             "fields": {
               "alertness": {},
               "athletics": {},
@@ -101,7 +100,6 @@
             }
           },
           "knowledges": {
-            "singular": "knowledge",
             "fields": {
               "academics": {},
               "computer": {},
@@ -120,7 +118,6 @@
       "advantages": {
         "fields": {
           "disciplines": {
-            "singular": "discipline",
             "free_cost": 7,
             "mult_xp_cost": 7,
             "mult_xp_cost_clan": 5,
@@ -131,12 +128,10 @@
             "fields": {}
           },
           "backgrounds": {
-            "singular": "background",
             "free_cost": 1,
             "fields": {}
           },
           "virtues": {
-            "singular": "virtue",
             "free_cost": 2,
             "mult_xp_cost": 2,
             "val_max": 5,
@@ -150,18 +145,21 @@
           }
         }
       },
-      "path": {
-        "singular": "path",
-        "free_cost": 2,
-        "mult_xp_cost": 2,
-        "fields": {}
-      },
-      "willpower": {
-        "singular": "willpower",
-        "free_cost": 1,
-        "mult_xp_cost": 1,
-        "fields": {}
+      "pools": {
+        "fields": {
+          "humanity": {
+          },
+          "willpower": {
+          },
+          "blood": {
+          }
+        }
       }
+    }
+  },
+  "path": {
+    "humanity": {
+      "bearing": "normalcy"
     }
   },
   "clan": {
