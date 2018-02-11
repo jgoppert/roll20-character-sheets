@@ -144,16 +144,13 @@
           }
         }
       },
-      "pools": {
+      "other": {
         "fields": {
-          "humanity": {
-            "fields": {}
-          },
-          "willpower": {
-            "fields": {}
-          },
-          "blood": {
-            "fields": {}
+          "pools": {
+            "fields": {
+              "humanity": {},
+              "willpower": {}
+            }
           }
         }
       }

@@ -81,32 +81,74 @@
     <h2 style="display: inline-block;">Stats</h2>
     <input title="hide" name="attr_stats_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
-    <div class="sheet-block-a" style="width: 10em">
-      <table width="10em">
-        <thead>
+    <div class="sheet-block-a">
+      <div class="sheet-divcol" style="width: 10em">
+        <h3>Character</h3>
+        <table >
+          <input name="attr_total_xp" value="0" type="hidden"/>
           <tr>
-            <th></th>
-            <th>Spent</th>
-            <th></th>
-            <th>Avail</th>
+            <th>Xp</th>
+            <td><input name="attr_total_xp_disp" value="@{total_xp}" title="xp spent" type="number" disabled="true"/></td>
+            <td>/</td>
+            <td><input name="attr_xp_avail" value="0" title="xp available" type="number"/></td>
           </tr>
-        </thead>
-        <input name="attr_total_xp" value="0" type="hidden"/>
-        <tr>
-          <th>Xp</th>
-          <td><input name="attr_total_xp_disp" value="@{total_xp}" title="xp spent" type="number" disabled="true"/></td>
-          <td>/</td>
-          <td><input name="attr_xp_avail" value="0" title="xp available" type="number"/></td>
-        </tr>
-        <input name="attr_total_free" value="0" type="hidden"/>
-        <tr>
-          <th>Free</th>
-          <td><input name="attr_total_free_disp" value="@{total_free}}" title="free spent" type="number" disabled="true"/></td>
-          <td>/</td>
-          <td><input name="attr_free_avail" value="15" title="freebie points available" type="number" disabled="true"/></td>
-        </tr>
-      </table>
-    </div>
+          <input name="attr_total_free" value="0" type="hidden"/>
+          <tr>
+            <th>Free</th>
+            <td><input name="attr_total_free_disp" value="@{total_free}}" title="free spent" type="number" disabled="true"/></td>
+            <td>/</td>
+            <td><input name="attr_free_avail" value="15" title="freebie points available" type="number" disabled="true"/></td>
+          </tr>
+        </table>
+      </div>
+      <div class="sheet-divcol" style="width: 10em">
+        <h3>Pools</h3>
+        <table >
+          <tr>
+            <th>Blood</th>
+            <td><input name="attr_blood" value="0" title="blood" type="number"</td>
+            <td>/</td>
+            <td><input name="attr_blood_max" value="15" title="blood max" type="number" disabled="true"/></td>
+          </tr>
+          <tr>
+            <th>Path</th>
+            <td><input name="attr_path" value="0" title="path" type="number"</td>
+            <td>/</td>
+            <td><input name="attr_path_max" value="15" title="path max" type="number" disabled="true"/></td>
+          </tr>
+          <tr>
+            <th>Will</th>
+            <td><input name="attr_willpower" value="0" title="willpower" type="number"</td>
+            <td>/</td>
+            <td><input name="attr_willpower_max" value="15" title="willpower max" type="number" disabled="true"/></td>
+          </tr>
+        </table>
+      </div>
+      <div class="sheet-divcol" style="width: 10em">
+        <h3>Health</h3>
+        <table >
+          
+          <tr>
+            <th>Bash</th>
+            <td><input name="attr_dmg_bash" value="0" title="bash damage" type="number"</td>
+          </tr>
+          
+          <tr>
+            <th>Lethal</th>
+            <td><input name="attr_dmg_lethal" value="0" title="lethal damage" type="number"</td>
+          </tr>
+          
+          <tr>
+            <th>Aggravated</th>
+            <td><input name="attr_dmg_aggravated" value="0" title="aggravated damage" type="number"</td>
+          </tr>
+          
+          <tr>
+            <th>Penalty</th>
+            <td><input name="attr_wound_penalty" value="0" title="wound penalty for dice rolls" type="number" disabled="true"</td>
+          </tr>
+        </table>
+      </div>
     <div class="sheet-block-b">
     </div>
   </div>
@@ -1595,26 +1637,26 @@
     </div>
   </div>
   
-  <!-- Section Pools -->
+  <!-- Section Other -->
   <div class="sheet-divrow">
-    <h2 style="display: inline-block;">Pools</h2>
+    <h2 style="display: inline-block;">Other</h2>
     
-    <input name="attr_pools_base" value="0" type="hidden" />
+    <input name="attr_other_base" value="0" type="hidden" />
     
-    <input name="attr_pools_free" value="0" type="hidden" />
+    <input name="attr_other_free" value="0" type="hidden" />
     
-    <input name="attr_pools_xp" value="0" type="hidden" />
+    <input name="attr_other_xp" value="0" type="hidden" />
     
-    <input title="hide" name="attr_pools_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
+    <input title="hide" name="attr_other_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
         
     <div class="sheet-divcol">
-      <h3 style="display: inline-block;">Humanity</h3>
-      <input title="details" name="attr_humanity_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
+      <h3 style="display: inline-block;">Pools</h3>
+      <input title="details" name="attr_pools_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="humanity basic table">
+        <table summary="pools basic table">
           <thead>
             <tr>
               <td></td>
@@ -1631,65 +1673,38 @@
               <td>10</td>
             </tr>
           </thead>
-        </table>
-      </div>
-      <div class="sheet-block-b">
-        <table summary="humanity detail table">
-            <thead>
-              <tr>
-                <th></th>
-                <td>Base</td>
-                <td>Free</td>
-                <td>Xp</td>
-                <td>Total</td>
-              </tr>
-            </thead>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
-          
-            <input name="attr_humanity_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_humanity_base_disp" title="Humanity base"
-            value="@{humanity_base}" type="number" disabled="true"/></td>
-          
-            <input name="attr_humanity_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_humanity_free_disp" title="Humanity free"
-            value="@{humanity_free}" type="number" disabled="true"/></td>
-          
-            <input name="attr_humanity_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_humanity_xp_disp" title="Humanity xp"
-            value="@{humanity_xp}" type="number" disabled="true"/></td>
-          
-            <td></td>
+          <tr>
+            <th>Humanity</th>
+            <td><input class="prop_val" name="attr_humanity_radio" value="0" title="Humanity total" type="radio" checked/></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="1" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="2" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="3" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="4" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="5" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="6" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="7" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="8" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="9" title="Humanity total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_humanity_radio" value="10" title="Humanity total" type="radio" /></td>
+          </tr>
+          <tr>
+            <th>Willpower</th>
+            <td><input class="prop_val" name="attr_willpower_radio" value="0" title="Willpower total" type="radio" checked/></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="1" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="2" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="3" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="4" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="5" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="6" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="7" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="8" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="9" title="Willpower total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_willpower_radio" value="10" title="Willpower total" type="radio" /></td>
           </tr>
         </table>
       </div>
-    </div>
-    <div class="sheet-divcol">
-      <h3 style="display: inline-block;">Willpower</h3>
-      <input title="details" name="attr_willpower_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
-      <br />
-      <div class="sheet-block-a">
-        <table summary="willpower basic table">
-          <thead>
-            <tr>
-              <td></td>
-              <td>0</td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
-              <td>5</td>
-              <td>6</td>
-              <td>7</td>
-              <td>8</td>
-              <td>9</td>
-              <td>10</td>
-            </tr>
-          </thead>
-        </table>
-      </div>
       <div class="sheet-block-b">
-        <table summary="willpower detail table">
+        <table summary="pools detail table">
             <thead>
               <tr>
                 <th></th>
@@ -1699,75 +1714,40 @@
                 <td>Total</td>
               </tr>
             </thead>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
-          
-            <input name="attr_willpower_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_willpower_base_disp" title="Willpower base"
-            value="@{willpower_base}" type="number" disabled="true"/></td>
-          
-            <input name="attr_willpower_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_willpower_free_disp" title="Willpower free"
-            value="@{willpower_free}" type="number" disabled="true"/></td>
-          
-            <input name="attr_willpower_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_willpower_xp_disp" title="Willpower xp"
-            value="@{willpower_xp}" type="number" disabled="true"/></td>
-          
-            <td></td>
+          <tr>
+            <th>Humanity</th>
+            <td><input class="prop_val" name="attr_humanity_base" value="0" title="Humanity base" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr_humanity_free" value="0" title="Humanity freebie" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr_humanity_xp" value="0" title="Humanity xp" min="0" max="10" type="number" /></td>
+            <td>
+              <input class="prop_result" name="attr_humanity" value="0" type="hidden" />
+              <input class="prop_result" name="attr_humanity_disp" value="@{humanity}" type="number" title="Humanity total" disabled="true" />
+            </td>
           </tr>
-        </table>
-      </div>
-    </div>
-    <div class="sheet-divcol">
-      <h3 style="display: inline-block;">Blood</h3>
-      <input title="details" name="attr_blood_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
-      <br />
-      <div class="sheet-block-a">
-        <table summary="blood basic table">
-          <thead>
-            <tr>
-              <td></td>
-              <td>0</td>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
-              <td>5</td>
-              <td>6</td>
-              <td>7</td>
-              <td>8</td>
-              <td>9</td>
-              <td>10</td>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="sheet-block-b">
-        <table summary="blood detail table">
-            <thead>
-              <tr>
-                <th></th>
-                <td>Base</td>
-                <td>Free</td>
-                <td>Xp</td>
-                <td>Total</td>
-              </tr>
-            </thead>
+          <tr>
+            <th>Willpower</th>
+            <td><input class="prop_val" name="attr_willpower_base" value="0" title="Willpower base" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr_willpower_free" value="0" title="Willpower freebie" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr_willpower_xp" value="0" title="Willpower xp" min="0" max="10" type="number" /></td>
+            <td>
+              <input class="prop_result" name="attr_willpower" value="0" type="hidden" />
+              <input class="prop_result" name="attr_willpower_disp" value="@{willpower}" type="number" title="Willpower total" disabled="true" />
+            </td>
+          </tr>
           <tr >
             <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
           
-            <input name="attr_blood_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_blood_base_disp" title="Blood base"
-            value="@{blood_base}" type="number" disabled="true"/></td>
+            <input name="attr_pools_base" value="0" type="hidden" />
+            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_pools_base_disp" title="Pools base"
+            value="@{pools_base}" type="number" disabled="true"/></td>
           
-            <input name="attr_blood_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_blood_free_disp" title="Blood free"
-            value="@{blood_free}" type="number" disabled="true"/></td>
+            <input name="attr_pools_free" value="0" type="hidden" />
+            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_pools_free_disp" title="Pools free"
+            value="@{pools_free}" type="number" disabled="true"/></td>
           
-            <input name="attr_blood_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_blood_xp_disp" title="Blood xp"
-            value="@{blood_xp}" type="number" disabled="true"/></td>
+            <input name="attr_pools_xp" value="0" type="hidden" />
+            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_pools_xp_disp" title="Pools xp"
+            value="@{pools_xp}" type="number" disabled="true"/></td>
           
             <td></td>
           </tr>
@@ -1783,7 +1763,7 @@
 </div>
 
 <script type="text/worker">
-const data = JSON.parse('{"title":"Vampire the Masquerade","subtitle":"20th Anniversary Edition","header":{"col1":{"fields":{"name":{},"player":{},"chronicle":{}}},"col2":{"fields":{"nature":{},"demeanor":{},"concept":{}}},"col3":{"fields":{"clan":{},"generation":{},"sire":{}}}},"sections":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":"","fields":{"attributes":{"free_cost":5,"mult_xp_cost":4,"val_start":1,"initial_base":1,"fields":{"physical":{"fields":{"strength":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"dexterity":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"stamina":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"social":{"fields":{"charisma":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"manipulation":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"appearance":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"mental":{"fields":{"perception":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"intelligence":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"wits":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"new_xp_cost":0,"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"abilities":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"fields":{"talents":{"fields":{"alertness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"athletics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"awareness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"brawl":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"empathy":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"expression":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"intimidation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"leadership":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"streetwise":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"subterfuge":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"skills":{"singluar":"skill","fields":{"animal_ken":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"crafts":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"drive":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"etiquette":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"firearms":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"larceny":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"melee":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"performance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"stealth":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"survival":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"knowledges":{"fields":{"academics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"computer":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"finance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"investigation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"law":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"medicine":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"occult":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"politics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"science":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"technology":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"advantages":{"fields":{"disciplines":{"free_cost":7,"mult_xp_cost":7,"mult_xp_cost_clan":5,"mult_xp_cost_caitiff":6,"new_xp_cost":10,"initial_base":1,"val_start":1,"fields":{},"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"backgrounds":{"free_cost":1,"fields":{},"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"virtues":{"free_cost":2,"mult_xp_cost":2,"val_max":5,"val_start":1,"initial_base":1,"conscience":{},"self_control":{},"courage":{},"new_xp_cost":0,"val_min":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"pools":{"fields":{"humanity":{"fields":{},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"willpower":{"fields":{},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"blood":{"fields":{},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}}},"path":{"humanity":{"bearing":"normalcy"}},"clan":{"assamite":{"disciplines":["celerity","obfuscate","quietus"]},"brujah":{"disciplines":["celerity","potence","presence"]},"followers_of_set":{"disciplines":["obfuscate","presence","serpentis"]},"gangrel":{"disciplines":["animalism","fortitude","protean"]},"giovanni":{"disciplines":["dominate","necromancy","potence"]},"lasombra":{"disciplines":["dominate","obtenebration","potence"]},"malkavian":{"disciplines":["auspex","dementation","obfuscate"]},"nosferatu":{"disciplines":["animalism","obfuscate","potence"]},"ravnos":{"disciplines":["animalism","chimerstry","fortitude"]},"toreador":{"disciplines":["auspex","celerity","presence"]},"tremere":{"disciplines":["auspex","dominate","thaumaturgy"]},"tzimisce":{"disciplines":["animalism","auspex","vicissitude"]},"ventrue":{"disciplines":["dominate","fortitude","presence"]},"caitiff":{"disciplines":[]},"human":{"disciplines":[]},"werewolf":{"disciplines":["celerity","potence","protean"]},"mage":{"disciplines":["auspex","chimerstry","dominate","fortitude","presence","thaumaturgy"]},"faerie":{"disciplines":["animalism","auspex","chimerstry","celerity","obfuscate","protean"]},"ghost":{"disciplines":["auspex","chimerstry","dementation","dominate","presence","vicissitude"]},"demon":{"disciplines":["dominate","potence","fortitude","daimoinon","vicissitude"]}},"generation_table":{"hdr":["trait_max","blood_pool_max","blood_per_turn"],"3":[10,100,20],"4":[9,50,10],"5":[8,40,8],"6":[7,30,6],"7":[6,20,4],"8":[5,15,3],"9":[5,14,2],"10":[5,13,1],"11":[5,12,1],"12":[5,11,1],"13":[5,10,1]},"postfixes":["base","free","xp"]}');
+const data = JSON.parse('{"title":"Vampire the Masquerade","subtitle":"20th Anniversary Edition","header":{"col1":{"fields":{"name":{},"player":{},"chronicle":{}}},"col2":{"fields":{"nature":{},"demeanor":{},"concept":{}}},"col3":{"fields":{"clan":{},"generation":{},"sire":{}}}},"sections":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":"","fields":{"attributes":{"free_cost":5,"mult_xp_cost":4,"val_start":1,"initial_base":1,"fields":{"physical":{"fields":{"strength":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"dexterity":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"stamina":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"social":{"fields":{"charisma":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"manipulation":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"appearance":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"mental":{"fields":{"perception":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"intelligence":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"wits":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"new_xp_cost":0,"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"abilities":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"fields":{"talents":{"fields":{"alertness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"athletics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"awareness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"brawl":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"empathy":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"expression":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"intimidation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"leadership":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"streetwise":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"subterfuge":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"skills":{"singluar":"skill","fields":{"animal_ken":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"crafts":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"drive":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"etiquette":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"firearms":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"larceny":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"melee":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"performance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"stealth":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"survival":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"knowledges":{"fields":{"academics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"computer":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"finance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"investigation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"law":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"medicine":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"occult":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"politics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"science":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"technology":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"advantages":{"fields":{"disciplines":{"free_cost":7,"mult_xp_cost":7,"mult_xp_cost_clan":5,"mult_xp_cost_caitiff":6,"new_xp_cost":10,"initial_base":1,"val_start":1,"fields":{},"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"backgrounds":{"free_cost":1,"fields":{},"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"virtues":{"free_cost":2,"mult_xp_cost":2,"val_max":5,"val_start":1,"initial_base":1,"conscience":{},"self_control":{},"courage":{},"new_xp_cost":0,"val_min":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"other":{"fields":{"pools":{"fields":{"humanity":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"willpower":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}}},"path":{"humanity":{"bearing":"normalcy"}},"clan":{"assamite":{"disciplines":["celerity","obfuscate","quietus"]},"brujah":{"disciplines":["celerity","potence","presence"]},"followers_of_set":{"disciplines":["obfuscate","presence","serpentis"]},"gangrel":{"disciplines":["animalism","fortitude","protean"]},"giovanni":{"disciplines":["dominate","necromancy","potence"]},"lasombra":{"disciplines":["dominate","obtenebration","potence"]},"malkavian":{"disciplines":["auspex","dementation","obfuscate"]},"nosferatu":{"disciplines":["animalism","obfuscate","potence"]},"ravnos":{"disciplines":["animalism","chimerstry","fortitude"]},"toreador":{"disciplines":["auspex","celerity","presence"]},"tremere":{"disciplines":["auspex","dominate","thaumaturgy"]},"tzimisce":{"disciplines":["animalism","auspex","vicissitude"]},"ventrue":{"disciplines":["dominate","fortitude","presence"]},"caitiff":{"disciplines":[]},"human":{"disciplines":[]},"werewolf":{"disciplines":["celerity","potence","protean"]},"mage":{"disciplines":["auspex","chimerstry","dominate","fortitude","presence","thaumaturgy"]},"faerie":{"disciplines":["animalism","auspex","chimerstry","celerity","obfuscate","protean"]},"ghost":{"disciplines":["auspex","chimerstry","dementation","dominate","presence","vicissitude"]},"demon":{"disciplines":["dominate","potence","fortitude","daimoinon","vicissitude"]}},"generation_table":{"hdr":["trait_max","blood_pool_max","blood_per_turn"],"3":[10,100,20],"4":[9,50,10],"5":[8,40,8],"6":[7,30,6],"7":[6,20,4],"8":[5,15,3],"9":[5,14,2],"10":[5,13,1],"11":[5,12,1],"12":[5,11,1],"13":[5,10,1]},"postfixes":["base","free","xp"]}');
 "use strict";
 console.log(data);
 
