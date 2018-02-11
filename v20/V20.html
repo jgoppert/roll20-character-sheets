@@ -20,21 +20,21 @@
   <!-- Basics -->
   <div class="sheet-divrow" style="display: inline-block;">
     <h2 style="display: inline-block;">Basics</h2>
-    <input title="hide" name="attr_basics_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
+    <input title="hide" name="attr_basics_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch"/>
     <br />
     <div class="sheet-block-a">
       <div class="sheet-divcol">
         <table>
           <tr>
-            <th>Name</th>
+            <th style="width: 7em">Name:</th>
             <td><input class="prop_val" title="name" type="text" name="attr_name"/></td>
           </tr>
           <tr>
-            <th>Player</th>
+            <th style="width: 7em">Player:</th>
             <td><input class="prop_val" title="player" type="text" name="attr_player"/></td>
           </tr>
           <tr>
-            <th>Chronicle</th>
+            <th style="width: 7em">Chronicle:</th>
             <td><input class="prop_val" title="chronicle" type="text" name="attr_chronicle"/></td>
           </tr>
         </table>
@@ -42,15 +42,15 @@
       <div class="sheet-divcol">
         <table>
           <tr>
-            <th>Nature</th>
+            <th style="width: 7em">Nature:</th>
             <td><input class="prop_val" title="nature" type="text" name="attr_nature"/></td>
           </tr>
           <tr>
-            <th>Demeanor</th>
+            <th style="width: 7em">Demeanor:</th>
             <td><input class="prop_val" title="demeanor" type="text" name="attr_demeanor"/></td>
           </tr>
           <tr>
-            <th>Concept</th>
+            <th style="width: 7em">Concept:</th>
             <td><input class="prop_val" title="concept" type="text" name="attr_concept"/></td>
           </tr>
         </table>
@@ -58,15 +58,15 @@
       <div class="sheet-divcol">
         <table>
           <tr>
-            <th>Clan</th>
+            <th style="width: 7em">Clan:</th>
             <td><input class="prop_val" title="clan" type="text" name="attr_clan"/></td>
           </tr>
           <tr>
-            <th>Generation</th>
+            <th style="width: 7em">Generation:</th>
             <td><input class="prop_val" title="generation" type="text" name="attr_generation"/></td>
           </tr>
           <tr>
-            <th>Sire</th>
+            <th style="width: 7em">Sire:</th>
             <td><input class="prop_val" title="sire" type="text" name="attr_sire"/></td>
           </tr>
         </table>
@@ -79,7 +79,7 @@
   <!-- Stats -->
   <div class="sheet-divrow">
     <h2 style="display: inline-block;">Stats</h2>
-    <input title="hide" name="attr_stats_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
+    <input title="hide" name="attr_stats_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch"/>
     <br />
     <div class="sheet-block-a">
       <div class="sheet-divcol" style="width: 12em">
@@ -106,48 +106,69 @@
         <table >
           <tr>
             <th>Blood</th>
-            <td><input name="attr_blood" value="0" title="blood" type="number"</td>
+            <td><input name="attr_blood" value="0" title="blood" type="number"/></td>
             <td>/</td>
-            <td><input name="attr_blood_max" value="15" title="blood max" type="number" disabled="true"/></td>
+            <td><input name="attr_blood_max" value="10" title="blood max" type="number" disabled="true"/></td>
           </tr>
           <tr>
             <th>Path</th>
-            <td><input name="attr_path" value="0" title="path" type="number"</td>
+            <td><input name="attr_path" value="0" title="path" type="number"/></td>
             <td>/</td>
-            <td><input name="attr_path_max" value="15" title="path max" type="number" disabled="true"/></td>
+            <td><input name="attr_path_max" value="10" title="path max" type="number" disabled="true"/></td>
           </tr>
           <tr>
             <th>Will</th>
-            <td><input name="attr_willpower" value="0" title="willpower" type="number"</td>
+            <td><input name="attr_willpower" value="0" title="willpower" type="number"/></td>
             <td>/</td>
-            <td><input name="attr_willpower_max" value="15" title="willpower max" type="number" disabled="true"/></td>
+            <td><input name="attr_willpower_max" value="10" title="willpower max" type="number" disabled="true"/></td>
           </tr>
         </table>
       </div>
-      <div class="sheet-divcol" style="width: 12em">
+      <div class="sheet-divcol" style="width: 23em;">
         <h3>Health</h3>
-        <table >
-          
-          <tr>
-            <th>Bash</th>
-            <td><input name="attr_dmg_bash" value="0" title="bash damage" type="number"</td>
-          </tr>
-          
-          <tr>
-            <th>Lethal</th>
-            <td><input name="attr_dmg_lethal" value="0" title="lethal damage" type="number"</td>
-          </tr>
-          
-          <tr>
-            <th>Aggravated</th>
-            <td><input name="attr_dmg_aggravated" value="0" title="aggravated damage" type="number"</td>
-          </tr>
-          
-          <tr>
-            <th>Penalty</th>
-            <td><input name="attr_wound_penalty" value="0" title="wound penalty for dice rolls" type="number" disabled="true"</td>
-          </tr>
-        </table>
+        <div style="width: 9em; display:inline-block;">
+          <table>
+            
+            <tr>
+              <th>Bash</th>
+              <td><input name="attr_dmg_bash" value="0" min="0" title="bash damage" type="number"/></td>
+            </tr>
+            
+            <tr>
+              <th>Lethal</th>
+              <td><input name="attr_dmg_lethal" value="0" min="0" title="lethal damage" type="number"/></td>
+            </tr>
+            
+            <tr>
+              <th>Aggravated</th>
+              <td><input name="attr_dmg_aggravated" value="0" min="0" title="aggravated damage" type="number"/></td>
+            </tr>
+            
+          </table>
+        </div>
+        <div style="width: 12em; display:inline-block; padding-left: 0.1em;">
+          <table style="display: inline-block" >
+            <tr>
+              <th>Health</th>
+              <input name="attr_health" value="0" type="hidden"/>
+              <td><input name="attr_health_disp" value="@{health}" title="health" type="number" disabled="true"/></td>
+              <td>/</td>
+              <td><input name="attr_health_levels" value="7" min="0" title="health levels" type="number"/></td>
+            <tr>
+              <th>Penalty</th>
+              <input name="attr_wound_penalty" value="0" type="hidden"/>
+              <td><input name="attr_wound_penalty_disp" value="@{wound_penalty}" title="penalty for dice rolls" type="number" disabled="true"/></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>State</th>
+              <input name="attr_health_state" value="normal" type="hidden"/>
+              <td colspan="3"><input name="attr_health_state_disp" value="@{health_state}" title="health state" type="text" disabled="true"/></td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
     <div class="sheet-block-b">
@@ -168,13 +189,15 @@
     <input title="hide" name="attr_attributes_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
-        
+      
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Physical</h3>
       <input title="details" name="attr_physical_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="physical basic table">
+        <table summary="Physical basic table">
           <thead>
             <tr>
               <td></td>
@@ -191,6 +214,7 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Strength</th>
             <td><input class="prop_val" name="attr_strength_radio" value="0" title="Strength total" type="radio" /></td>
@@ -205,6 +229,7 @@
             <td><input class="prop_val" name="attr_strength_radio" value="9" title="Strength total" type="radio" /></td>
             <td><input class="prop_val" name="attr_strength_radio" value="10" title="Strength total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Dexterity</th>
             <td><input class="prop_val" name="attr_dexterity_radio" value="0" title="Dexterity total" type="radio" /></td>
@@ -219,6 +244,7 @@
             <td><input class="prop_val" name="attr_dexterity_radio" value="9" title="Dexterity total" type="radio" /></td>
             <td><input class="prop_val" name="attr_dexterity_radio" value="10" title="Dexterity total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Stamina</th>
             <td><input class="prop_val" name="attr_stamina_radio" value="0" title="Stamina total" type="radio" /></td>
@@ -247,6 +273,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Strength</th>
             <td><input class="prop_val" name="attr_strength_base" value="1" title="Strength base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_strength_free" value="0" title="Strength freebie" min="0" max="10" type="number" /></td>
@@ -257,6 +284,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Dexterity</th>
             <td><input class="prop_val" name="attr_dexterity_base" value="1" title="Dexterity base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_dexterity_free" value="0" title="Dexterity freebie" min="0" max="10" type="number" /></td>
@@ -267,6 +295,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Stamina</th>
             <td><input class="prop_val" name="attr_stamina_base" value="1" title="Stamina base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_stamina_free" value="0" title="Stamina freebie" min="0" max="10" type="number" /></td>
@@ -276,19 +305,19 @@
               <input class="prop_result" name="attr_stamina_disp" value="@{stamina}" type="number" title="Stamina total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_physical_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_physical_base_disp" title="Physical base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_physical_base_disp" title="Physical base"
             value="@{physical_base}" type="number" disabled="true"/></td>
           
             <input name="attr_physical_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_physical_free_disp" title="Physical free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_physical_free_disp" title="Physical free"
             value="@{physical_free}" type="number" disabled="true"/></td>
           
             <input name="attr_physical_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_physical_xp_disp" title="Physical xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_physical_xp_disp" title="Physical xp"
             value="@{physical_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -296,12 +325,14 @@
         </table>
       </div>
     </div>
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Social</h3>
       <input title="details" name="attr_social_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="social basic table">
+        <table summary="Social basic table">
           <thead>
             <tr>
               <td></td>
@@ -318,6 +349,7 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Charisma</th>
             <td><input class="prop_val" name="attr_charisma_radio" value="0" title="Charisma total" type="radio" /></td>
@@ -332,6 +364,7 @@
             <td><input class="prop_val" name="attr_charisma_radio" value="9" title="Charisma total" type="radio" /></td>
             <td><input class="prop_val" name="attr_charisma_radio" value="10" title="Charisma total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Manipulation</th>
             <td><input class="prop_val" name="attr_manipulation_radio" value="0" title="Manipulation total" type="radio" /></td>
@@ -346,6 +379,7 @@
             <td><input class="prop_val" name="attr_manipulation_radio" value="9" title="Manipulation total" type="radio" /></td>
             <td><input class="prop_val" name="attr_manipulation_radio" value="10" title="Manipulation total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Appearance</th>
             <td><input class="prop_val" name="attr_appearance_radio" value="0" title="Appearance total" type="radio" /></td>
@@ -374,6 +408,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Charisma</th>
             <td><input class="prop_val" name="attr_charisma_base" value="1" title="Charisma base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_charisma_free" value="0" title="Charisma freebie" min="0" max="10" type="number" /></td>
@@ -384,6 +419,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Manipulation</th>
             <td><input class="prop_val" name="attr_manipulation_base" value="1" title="Manipulation base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_manipulation_free" value="0" title="Manipulation freebie" min="0" max="10" type="number" /></td>
@@ -394,6 +430,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Appearance</th>
             <td><input class="prop_val" name="attr_appearance_base" value="1" title="Appearance base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_appearance_free" value="0" title="Appearance freebie" min="0" max="10" type="number" /></td>
@@ -403,19 +440,19 @@
               <input class="prop_result" name="attr_appearance_disp" value="@{appearance}" type="number" title="Appearance total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_social_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_social_base_disp" title="Social base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_social_base_disp" title="Social base"
             value="@{social_base}" type="number" disabled="true"/></td>
           
             <input name="attr_social_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_social_free_disp" title="Social free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_social_free_disp" title="Social free"
             value="@{social_free}" type="number" disabled="true"/></td>
           
             <input name="attr_social_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_social_xp_disp" title="Social xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_social_xp_disp" title="Social xp"
             value="@{social_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -423,12 +460,14 @@
         </table>
       </div>
     </div>
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Mental</h3>
       <input title="details" name="attr_mental_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="mental basic table">
+        <table summary="Mental basic table">
           <thead>
             <tr>
               <td></td>
@@ -445,6 +484,7 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Perception</th>
             <td><input class="prop_val" name="attr_perception_radio" value="0" title="Perception total" type="radio" /></td>
@@ -459,6 +499,7 @@
             <td><input class="prop_val" name="attr_perception_radio" value="9" title="Perception total" type="radio" /></td>
             <td><input class="prop_val" name="attr_perception_radio" value="10" title="Perception total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Intelligence</th>
             <td><input class="prop_val" name="attr_intelligence_radio" value="0" title="Intelligence total" type="radio" /></td>
@@ -473,6 +514,7 @@
             <td><input class="prop_val" name="attr_intelligence_radio" value="9" title="Intelligence total" type="radio" /></td>
             <td><input class="prop_val" name="attr_intelligence_radio" value="10" title="Intelligence total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Wits</th>
             <td><input class="prop_val" name="attr_wits_radio" value="0" title="Wits total" type="radio" /></td>
@@ -501,6 +543,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Perception</th>
             <td><input class="prop_val" name="attr_perception_base" value="1" title="Perception base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_perception_free" value="0" title="Perception freebie" min="0" max="10" type="number" /></td>
@@ -511,6 +554,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Intelligence</th>
             <td><input class="prop_val" name="attr_intelligence_base" value="1" title="Intelligence base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_intelligence_free" value="0" title="Intelligence freebie" min="0" max="10" type="number" /></td>
@@ -521,6 +565,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Wits</th>
             <td><input class="prop_val" name="attr_wits_base" value="1" title="Wits base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_wits_free" value="0" title="Wits freebie" min="0" max="10" type="number" /></td>
@@ -530,19 +575,19 @@
               <input class="prop_result" name="attr_wits_disp" value="@{wits}" type="number" title="Wits total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_mental_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_mental_base_disp" title="Mental base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_mental_base_disp" title="Mental base"
             value="@{mental_base}" type="number" disabled="true"/></td>
           
             <input name="attr_mental_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_mental_free_disp" title="Mental free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_mental_free_disp" title="Mental free"
             value="@{mental_free}" type="number" disabled="true"/></td>
           
             <input name="attr_mental_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_mental_xp_disp" title="Mental xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_mental_xp_disp" title="Mental xp"
             value="@{mental_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -568,13 +613,15 @@
     <input title="hide" name="attr_abilities_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
-        
+      
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Talents</h3>
       <input title="details" name="attr_talents_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="talents basic table">
+        <table summary="Talents basic table">
           <thead>
             <tr>
               <td></td>
@@ -591,6 +638,7 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Alertness</th>
             <td><input class="prop_val" name="attr_alertness_radio" value="0" title="Alertness total" type="radio" checked/></td>
@@ -605,6 +653,7 @@
             <td><input class="prop_val" name="attr_alertness_radio" value="9" title="Alertness total" type="radio" /></td>
             <td><input class="prop_val" name="attr_alertness_radio" value="10" title="Alertness total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Athletics</th>
             <td><input class="prop_val" name="attr_athletics_radio" value="0" title="Athletics total" type="radio" checked/></td>
@@ -619,6 +668,7 @@
             <td><input class="prop_val" name="attr_athletics_radio" value="9" title="Athletics total" type="radio" /></td>
             <td><input class="prop_val" name="attr_athletics_radio" value="10" title="Athletics total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Awareness</th>
             <td><input class="prop_val" name="attr_awareness_radio" value="0" title="Awareness total" type="radio" checked/></td>
@@ -633,6 +683,7 @@
             <td><input class="prop_val" name="attr_awareness_radio" value="9" title="Awareness total" type="radio" /></td>
             <td><input class="prop_val" name="attr_awareness_radio" value="10" title="Awareness total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Brawl</th>
             <td><input class="prop_val" name="attr_brawl_radio" value="0" title="Brawl total" type="radio" checked/></td>
@@ -647,6 +698,7 @@
             <td><input class="prop_val" name="attr_brawl_radio" value="9" title="Brawl total" type="radio" /></td>
             <td><input class="prop_val" name="attr_brawl_radio" value="10" title="Brawl total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Empathy</th>
             <td><input class="prop_val" name="attr_empathy_radio" value="0" title="Empathy total" type="radio" checked/></td>
@@ -661,6 +713,7 @@
             <td><input class="prop_val" name="attr_empathy_radio" value="9" title="Empathy total" type="radio" /></td>
             <td><input class="prop_val" name="attr_empathy_radio" value="10" title="Empathy total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Expression</th>
             <td><input class="prop_val" name="attr_expression_radio" value="0" title="Expression total" type="radio" checked/></td>
@@ -675,6 +728,7 @@
             <td><input class="prop_val" name="attr_expression_radio" value="9" title="Expression total" type="radio" /></td>
             <td><input class="prop_val" name="attr_expression_radio" value="10" title="Expression total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Intimidation</th>
             <td><input class="prop_val" name="attr_intimidation_radio" value="0" title="Intimidation total" type="radio" checked/></td>
@@ -689,6 +743,7 @@
             <td><input class="prop_val" name="attr_intimidation_radio" value="9" title="Intimidation total" type="radio" /></td>
             <td><input class="prop_val" name="attr_intimidation_radio" value="10" title="Intimidation total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Leadership</th>
             <td><input class="prop_val" name="attr_leadership_radio" value="0" title="Leadership total" type="radio" checked/></td>
@@ -703,6 +758,7 @@
             <td><input class="prop_val" name="attr_leadership_radio" value="9" title="Leadership total" type="radio" /></td>
             <td><input class="prop_val" name="attr_leadership_radio" value="10" title="Leadership total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Streetwise</th>
             <td><input class="prop_val" name="attr_streetwise_radio" value="0" title="Streetwise total" type="radio" checked/></td>
@@ -717,6 +773,7 @@
             <td><input class="prop_val" name="attr_streetwise_radio" value="9" title="Streetwise total" type="radio" /></td>
             <td><input class="prop_val" name="attr_streetwise_radio" value="10" title="Streetwise total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Subterfuge</th>
             <td><input class="prop_val" name="attr_subterfuge_radio" value="0" title="Subterfuge total" type="radio" checked/></td>
@@ -745,6 +802,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Alertness</th>
             <td><input class="prop_val" name="attr_alertness_base" value="0" title="Alertness base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_alertness_free" value="0" title="Alertness freebie" min="0" max="10" type="number" /></td>
@@ -755,6 +813,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Athletics</th>
             <td><input class="prop_val" name="attr_athletics_base" value="0" title="Athletics base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_athletics_free" value="0" title="Athletics freebie" min="0" max="10" type="number" /></td>
@@ -765,6 +824,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Awareness</th>
             <td><input class="prop_val" name="attr_awareness_base" value="0" title="Awareness base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_awareness_free" value="0" title="Awareness freebie" min="0" max="10" type="number" /></td>
@@ -775,6 +835,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Brawl</th>
             <td><input class="prop_val" name="attr_brawl_base" value="0" title="Brawl base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_brawl_free" value="0" title="Brawl freebie" min="0" max="10" type="number" /></td>
@@ -785,6 +846,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Empathy</th>
             <td><input class="prop_val" name="attr_empathy_base" value="0" title="Empathy base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_empathy_free" value="0" title="Empathy freebie" min="0" max="10" type="number" /></td>
@@ -795,6 +857,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Expression</th>
             <td><input class="prop_val" name="attr_expression_base" value="0" title="Expression base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_expression_free" value="0" title="Expression freebie" min="0" max="10" type="number" /></td>
@@ -805,6 +868,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Intimidation</th>
             <td><input class="prop_val" name="attr_intimidation_base" value="0" title="Intimidation base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_intimidation_free" value="0" title="Intimidation freebie" min="0" max="10" type="number" /></td>
@@ -815,6 +879,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Leadership</th>
             <td><input class="prop_val" name="attr_leadership_base" value="0" title="Leadership base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_leadership_free" value="0" title="Leadership freebie" min="0" max="10" type="number" /></td>
@@ -825,6 +890,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Streetwise</th>
             <td><input class="prop_val" name="attr_streetwise_base" value="0" title="Streetwise base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_streetwise_free" value="0" title="Streetwise freebie" min="0" max="10" type="number" /></td>
@@ -835,6 +901,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Subterfuge</th>
             <td><input class="prop_val" name="attr_subterfuge_base" value="0" title="Subterfuge base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_subterfuge_free" value="0" title="Subterfuge freebie" min="0" max="10" type="number" /></td>
@@ -844,19 +911,19 @@
               <input class="prop_result" name="attr_subterfuge_disp" value="@{subterfuge}" type="number" title="Subterfuge total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_talents_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_talents_base_disp" title="Talents base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_talents_base_disp" title="Talents base"
             value="@{talents_base}" type="number" disabled="true"/></td>
           
             <input name="attr_talents_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_talents_free_disp" title="Talents free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_talents_free_disp" title="Talents free"
             value="@{talents_free}" type="number" disabled="true"/></td>
           
             <input name="attr_talents_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_talents_xp_disp" title="Talents xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_talents_xp_disp" title="Talents xp"
             value="@{talents_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -864,12 +931,14 @@
         </table>
       </div>
     </div>
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Skills</h3>
       <input title="details" name="attr_skills_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="skills basic table">
+        <table summary="Skills basic table">
           <thead>
             <tr>
               <td></td>
@@ -886,20 +955,22 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
-            <th>Animal_ken</th>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="0" title="Animal_ken total" type="radio" checked/></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="1" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="2" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="3" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="4" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="5" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="6" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="7" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="8" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="9" title="Animal_ken total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_radio" value="10" title="Animal_ken total" type="radio" /></td>
+            <th>Animal Ken</th>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="0" title="Animal Ken total" type="radio" checked/></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="1" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="2" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="3" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="4" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="5" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="6" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="7" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="8" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="9" title="Animal Ken total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_radio" value="10" title="Animal Ken total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Crafts</th>
             <td><input class="prop_val" name="attr_crafts_radio" value="0" title="Crafts total" type="radio" checked/></td>
@@ -914,6 +985,7 @@
             <td><input class="prop_val" name="attr_crafts_radio" value="9" title="Crafts total" type="radio" /></td>
             <td><input class="prop_val" name="attr_crafts_radio" value="10" title="Crafts total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Drive</th>
             <td><input class="prop_val" name="attr_drive_radio" value="0" title="Drive total" type="radio" checked/></td>
@@ -928,6 +1000,7 @@
             <td><input class="prop_val" name="attr_drive_radio" value="9" title="Drive total" type="radio" /></td>
             <td><input class="prop_val" name="attr_drive_radio" value="10" title="Drive total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Etiquette</th>
             <td><input class="prop_val" name="attr_etiquette_radio" value="0" title="Etiquette total" type="radio" checked/></td>
@@ -942,6 +1015,7 @@
             <td><input class="prop_val" name="attr_etiquette_radio" value="9" title="Etiquette total" type="radio" /></td>
             <td><input class="prop_val" name="attr_etiquette_radio" value="10" title="Etiquette total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Firearms</th>
             <td><input class="prop_val" name="attr_firearms_radio" value="0" title="Firearms total" type="radio" checked/></td>
@@ -956,6 +1030,7 @@
             <td><input class="prop_val" name="attr_firearms_radio" value="9" title="Firearms total" type="radio" /></td>
             <td><input class="prop_val" name="attr_firearms_radio" value="10" title="Firearms total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Larceny</th>
             <td><input class="prop_val" name="attr_larceny_radio" value="0" title="Larceny total" type="radio" checked/></td>
@@ -970,6 +1045,7 @@
             <td><input class="prop_val" name="attr_larceny_radio" value="9" title="Larceny total" type="radio" /></td>
             <td><input class="prop_val" name="attr_larceny_radio" value="10" title="Larceny total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Melee</th>
             <td><input class="prop_val" name="attr_melee_radio" value="0" title="Melee total" type="radio" checked/></td>
@@ -984,6 +1060,7 @@
             <td><input class="prop_val" name="attr_melee_radio" value="9" title="Melee total" type="radio" /></td>
             <td><input class="prop_val" name="attr_melee_radio" value="10" title="Melee total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Performance</th>
             <td><input class="prop_val" name="attr_performance_radio" value="0" title="Performance total" type="radio" checked/></td>
@@ -998,6 +1075,7 @@
             <td><input class="prop_val" name="attr_performance_radio" value="9" title="Performance total" type="radio" /></td>
             <td><input class="prop_val" name="attr_performance_radio" value="10" title="Performance total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Stealth</th>
             <td><input class="prop_val" name="attr_stealth_radio" value="0" title="Stealth total" type="radio" checked/></td>
@@ -1012,6 +1090,7 @@
             <td><input class="prop_val" name="attr_stealth_radio" value="9" title="Stealth total" type="radio" /></td>
             <td><input class="prop_val" name="attr_stealth_radio" value="10" title="Stealth total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Survival</th>
             <td><input class="prop_val" name="attr_survival_radio" value="0" title="Survival total" type="radio" checked/></td>
@@ -1040,16 +1119,18 @@
               </tr>
             </thead>
           <tr>
-            <th>Animal_ken</th>
-            <td><input class="prop_val" name="attr_animal_ken_base" value="0" title="Animal_ken base" min="0" max="10" type="number" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_free" value="0" title="Animal_ken freebie" min="0" max="10" type="number" /></td>
-            <td><input class="prop_val" name="attr_animal_ken_xp" value="0" title="Animal_ken xp" min="0" max="10" type="number" /></td>
+            
+            <th>Animal Ken</th>
+            <td><input class="prop_val" name="attr_animal_ken_base" value="0" title="Animal Ken base" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_free" value="0" title="Animal Ken freebie" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr_animal_ken_xp" value="0" title="Animal Ken xp" min="0" max="10" type="number" /></td>
             <td>
               <input class="prop_result" name="attr_animal_ken" value="0" type="hidden" />
-              <input class="prop_result" name="attr_animal_ken_disp" value="@{animal_ken}" type="number" title="Animal_ken total" disabled="true" />
+              <input class="prop_result" name="attr_animal_ken_disp" value="@{animal_ken}" type="number" title="Animal Ken total" disabled="true" />
             </td>
           </tr>
           <tr>
+            
             <th>Crafts</th>
             <td><input class="prop_val" name="attr_crafts_base" value="0" title="Crafts base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_crafts_free" value="0" title="Crafts freebie" min="0" max="10" type="number" /></td>
@@ -1060,6 +1141,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Drive</th>
             <td><input class="prop_val" name="attr_drive_base" value="0" title="Drive base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_drive_free" value="0" title="Drive freebie" min="0" max="10" type="number" /></td>
@@ -1070,6 +1152,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Etiquette</th>
             <td><input class="prop_val" name="attr_etiquette_base" value="0" title="Etiquette base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_etiquette_free" value="0" title="Etiquette freebie" min="0" max="10" type="number" /></td>
@@ -1080,6 +1163,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Firearms</th>
             <td><input class="prop_val" name="attr_firearms_base" value="0" title="Firearms base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_firearms_free" value="0" title="Firearms freebie" min="0" max="10" type="number" /></td>
@@ -1090,6 +1174,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Larceny</th>
             <td><input class="prop_val" name="attr_larceny_base" value="0" title="Larceny base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_larceny_free" value="0" title="Larceny freebie" min="0" max="10" type="number" /></td>
@@ -1100,6 +1185,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Melee</th>
             <td><input class="prop_val" name="attr_melee_base" value="0" title="Melee base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_melee_free" value="0" title="Melee freebie" min="0" max="10" type="number" /></td>
@@ -1110,6 +1196,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Performance</th>
             <td><input class="prop_val" name="attr_performance_base" value="0" title="Performance base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_performance_free" value="0" title="Performance freebie" min="0" max="10" type="number" /></td>
@@ -1120,6 +1207,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Stealth</th>
             <td><input class="prop_val" name="attr_stealth_base" value="0" title="Stealth base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_stealth_free" value="0" title="Stealth freebie" min="0" max="10" type="number" /></td>
@@ -1130,6 +1218,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Survival</th>
             <td><input class="prop_val" name="attr_survival_base" value="0" title="Survival base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_survival_free" value="0" title="Survival freebie" min="0" max="10" type="number" /></td>
@@ -1139,19 +1228,19 @@
               <input class="prop_result" name="attr_survival_disp" value="@{survival}" type="number" title="Survival total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_skills_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_skills_base_disp" title="Skills base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_skills_base_disp" title="Skills base"
             value="@{skills_base}" type="number" disabled="true"/></td>
           
             <input name="attr_skills_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_skills_free_disp" title="Skills free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_skills_free_disp" title="Skills free"
             value="@{skills_free}" type="number" disabled="true"/></td>
           
             <input name="attr_skills_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_skills_xp_disp" title="Skills xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_skills_xp_disp" title="Skills xp"
             value="@{skills_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -1159,12 +1248,14 @@
         </table>
       </div>
     </div>
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Knowledges</h3>
       <input title="details" name="attr_knowledges_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="knowledges basic table">
+        <table summary="Knowledges basic table">
           <thead>
             <tr>
               <td></td>
@@ -1181,6 +1272,7 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Academics</th>
             <td><input class="prop_val" name="attr_academics_radio" value="0" title="Academics total" type="radio" checked/></td>
@@ -1195,6 +1287,7 @@
             <td><input class="prop_val" name="attr_academics_radio" value="9" title="Academics total" type="radio" /></td>
             <td><input class="prop_val" name="attr_academics_radio" value="10" title="Academics total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Computer</th>
             <td><input class="prop_val" name="attr_computer_radio" value="0" title="Computer total" type="radio" checked/></td>
@@ -1209,6 +1302,7 @@
             <td><input class="prop_val" name="attr_computer_radio" value="9" title="Computer total" type="radio" /></td>
             <td><input class="prop_val" name="attr_computer_radio" value="10" title="Computer total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Finance</th>
             <td><input class="prop_val" name="attr_finance_radio" value="0" title="Finance total" type="radio" checked/></td>
@@ -1223,6 +1317,7 @@
             <td><input class="prop_val" name="attr_finance_radio" value="9" title="Finance total" type="radio" /></td>
             <td><input class="prop_val" name="attr_finance_radio" value="10" title="Finance total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Investigation</th>
             <td><input class="prop_val" name="attr_investigation_radio" value="0" title="Investigation total" type="radio" checked/></td>
@@ -1237,6 +1332,7 @@
             <td><input class="prop_val" name="attr_investigation_radio" value="9" title="Investigation total" type="radio" /></td>
             <td><input class="prop_val" name="attr_investigation_radio" value="10" title="Investigation total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Law</th>
             <td><input class="prop_val" name="attr_law_radio" value="0" title="Law total" type="radio" checked/></td>
@@ -1251,6 +1347,7 @@
             <td><input class="prop_val" name="attr_law_radio" value="9" title="Law total" type="radio" /></td>
             <td><input class="prop_val" name="attr_law_radio" value="10" title="Law total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Medicine</th>
             <td><input class="prop_val" name="attr_medicine_radio" value="0" title="Medicine total" type="radio" checked/></td>
@@ -1265,6 +1362,7 @@
             <td><input class="prop_val" name="attr_medicine_radio" value="9" title="Medicine total" type="radio" /></td>
             <td><input class="prop_val" name="attr_medicine_radio" value="10" title="Medicine total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Occult</th>
             <td><input class="prop_val" name="attr_occult_radio" value="0" title="Occult total" type="radio" checked/></td>
@@ -1279,6 +1377,7 @@
             <td><input class="prop_val" name="attr_occult_radio" value="9" title="Occult total" type="radio" /></td>
             <td><input class="prop_val" name="attr_occult_radio" value="10" title="Occult total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Politics</th>
             <td><input class="prop_val" name="attr_politics_radio" value="0" title="Politics total" type="radio" checked/></td>
@@ -1293,6 +1392,7 @@
             <td><input class="prop_val" name="attr_politics_radio" value="9" title="Politics total" type="radio" /></td>
             <td><input class="prop_val" name="attr_politics_radio" value="10" title="Politics total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Science</th>
             <td><input class="prop_val" name="attr_science_radio" value="0" title="Science total" type="radio" checked/></td>
@@ -1307,6 +1407,7 @@
             <td><input class="prop_val" name="attr_science_radio" value="9" title="Science total" type="radio" /></td>
             <td><input class="prop_val" name="attr_science_radio" value="10" title="Science total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Technology</th>
             <td><input class="prop_val" name="attr_technology_radio" value="0" title="Technology total" type="radio" checked/></td>
@@ -1335,6 +1436,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Academics</th>
             <td><input class="prop_val" name="attr_academics_base" value="0" title="Academics base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_academics_free" value="0" title="Academics freebie" min="0" max="10" type="number" /></td>
@@ -1345,6 +1447,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Computer</th>
             <td><input class="prop_val" name="attr_computer_base" value="0" title="Computer base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_computer_free" value="0" title="Computer freebie" min="0" max="10" type="number" /></td>
@@ -1355,6 +1458,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Finance</th>
             <td><input class="prop_val" name="attr_finance_base" value="0" title="Finance base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_finance_free" value="0" title="Finance freebie" min="0" max="10" type="number" /></td>
@@ -1365,6 +1469,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Investigation</th>
             <td><input class="prop_val" name="attr_investigation_base" value="0" title="Investigation base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_investigation_free" value="0" title="Investigation freebie" min="0" max="10" type="number" /></td>
@@ -1375,6 +1480,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Law</th>
             <td><input class="prop_val" name="attr_law_base" value="0" title="Law base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_law_free" value="0" title="Law freebie" min="0" max="10" type="number" /></td>
@@ -1385,6 +1491,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Medicine</th>
             <td><input class="prop_val" name="attr_medicine_base" value="0" title="Medicine base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_medicine_free" value="0" title="Medicine freebie" min="0" max="10" type="number" /></td>
@@ -1395,6 +1502,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Occult</th>
             <td><input class="prop_val" name="attr_occult_base" value="0" title="Occult base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_occult_free" value="0" title="Occult freebie" min="0" max="10" type="number" /></td>
@@ -1405,6 +1513,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Politics</th>
             <td><input class="prop_val" name="attr_politics_base" value="0" title="Politics base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_politics_free" value="0" title="Politics freebie" min="0" max="10" type="number" /></td>
@@ -1415,6 +1524,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Science</th>
             <td><input class="prop_val" name="attr_science_base" value="0" title="Science base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_science_free" value="0" title="Science freebie" min="0" max="10" type="number" /></td>
@@ -1425,6 +1535,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Technology</th>
             <td><input class="prop_val" name="attr_technology_base" value="0" title="Technology base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_technology_free" value="0" title="Technology freebie" min="0" max="10" type="number" /></td>
@@ -1434,19 +1545,19 @@
               <input class="prop_result" name="attr_technology_disp" value="@{technology}" type="number" title="Technology total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_knowledges_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_knowledges_base_disp" title="Knowledges base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_knowledges_base_disp" title="Knowledges base"
             value="@{knowledges_base}" type="number" disabled="true"/></td>
           
             <input name="attr_knowledges_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_knowledges_free_disp" title="Knowledges free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_knowledges_free_disp" title="Knowledges free"
             value="@{knowledges_free}" type="number" disabled="true"/></td>
           
             <input name="attr_knowledges_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_knowledges_xp_disp" title="Knowledges xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_knowledges_xp_disp" title="Knowledges xp"
             value="@{knowledges_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -1472,13 +1583,15 @@
     <input title="hide" name="attr_advantages_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
-        
+      
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Disciplines</h3>
-      <input title="details" name="attr_disciplines_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
+      <input title="details" name="attr_disciplines_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch"/>
       <br />
       <div class="sheet-block-a">
-        <table summary="disciplines basic table">
+        <table summary="Disciplines basic table">
           <thead>
             <tr>
               <td></td>
@@ -1496,9 +1609,28 @@
             </tr>
           </thead>
         </table>
+        <fieldset class="repeating_disciplines">
+          <table summary="disciplines basic table">
+            
+          <tr>
+            <th><input class="prop_val" name="attr__name" value="" title=" name" type="text" /></th>
+            <td><input class="prop_val" name="attr__radio" value="0" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="1" title=" total" type="radio" checked/></td>
+            <td><input class="prop_val" name="attr__radio" value="2" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="3" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="4" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="5" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="6" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="7" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="8" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="9" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="10" title=" total" type="radio" /></td>
+          </tr>
+          </table>
+        </fieldset>
       </div>
       <div class="sheet-block-b">
-        <table summary="disciplines detail table">
+        <table summary="Disciplines detail table">
             <thead>
               <tr>
                 <th></th>
@@ -1507,7 +1639,24 @@
                 <td>Xp</td>
                 <td>Total</td>
               </tr>
-            </thead>
+            </thead></table>
+        <fieldset class="repeating_disciplines">
+          <table summary="Disciplines detail table">
+          
+          <tr>
+            
+            <th><input class="prop_name" name="attr__name" title=" name" value="" type="text" /></th>
+            <td><input class="prop_val" name="attr__base" value="1" title=" base" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr__free" value="0" title=" freebie" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr__xp" value="0" title=" xp" min="0" max="10" type="number" /></td>
+            <td>
+              <input class="prop_result" name="attr_" value="0" type="hidden" />
+              <input class="prop_result" name="attr__disp" value="@{}" type="number" title=" total" disabled="true" />
+            </td>
+          </tr>
+          </table>
+        </fieldset>
+        <table summary="Disciplines detail table">
           <tr >
             <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
           
@@ -1528,12 +1677,14 @@
         </table>
       </div>
     </div>
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Backgrounds</h3>
-      <input title="details" name="attr_backgrounds_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
+      <input title="details" name="attr_backgrounds_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch"/>
       <br />
       <div class="sheet-block-a">
-        <table summary="backgrounds basic table">
+        <table summary="Backgrounds basic table">
           <thead>
             <tr>
               <td></td>
@@ -1551,9 +1702,28 @@
             </tr>
           </thead>
         </table>
+        <fieldset class="repeating_backgrounds">
+          <table summary="backgrounds basic table">
+            
+          <tr>
+            <th><input class="prop_val" name="attr__name" value="" title=" name" type="text" /></th>
+            <td><input class="prop_val" name="attr__radio" value="0" title=" total" type="radio" checked/></td>
+            <td><input class="prop_val" name="attr__radio" value="1" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="2" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="3" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="4" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="5" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="6" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="7" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="8" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="9" title=" total" type="radio" /></td>
+            <td><input class="prop_val" name="attr__radio" value="10" title=" total" type="radio" /></td>
+          </tr>
+          </table>
+        </fieldset>
       </div>
       <div class="sheet-block-b">
-        <table summary="backgrounds detail table">
+        <table summary="Backgrounds detail table">
             <thead>
               <tr>
                 <th></th>
@@ -1562,7 +1732,24 @@
                 <td>Xp</td>
                 <td>Total</td>
               </tr>
-            </thead>
+            </thead></table>
+        <fieldset class="repeating_backgrounds">
+          <table summary="Backgrounds detail table">
+          
+          <tr>
+            
+            <th><input class="prop_name" name="attr__name" title=" name" value="" type="text" /></th>
+            <td><input class="prop_val" name="attr__base" value="0" title=" base" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr__free" value="0" title=" freebie" min="0" max="10" type="number" /></td>
+            <td><input class="prop_val" name="attr__xp" value="0" title=" xp" min="0" max="10" type="number" /></td>
+            <td>
+              <input class="prop_result" name="attr_" value="0" type="hidden" />
+              <input class="prop_result" name="attr__disp" value="@{}" type="number" title=" total" disabled="true" />
+            </td>
+          </tr>
+          </table>
+        </fieldset>
+        <table summary="Backgrounds detail table">
           <tr >
             <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
           
@@ -1583,12 +1770,14 @@
         </table>
       </div>
     </div>
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Virtues</h3>
       <input title="details" name="attr_virtues_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="virtues basic table">
+        <table summary="Virtues basic table">
           <thead>
             <tr>
               <td></td>
@@ -1600,6 +1789,7 @@
               <td>5</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Conscience</th>
             <td><input class="prop_val" name="attr_conscience_radio" value="0" title="Conscience total" type="radio" /></td>
@@ -1609,15 +1799,17 @@
             <td><input class="prop_val" name="attr_conscience_radio" value="4" title="Conscience total" type="radio" /></td>
             <td><input class="prop_val" name="attr_conscience_radio" value="5" title="Conscience total" type="radio" /></td>
           </tr>
+          
           <tr>
-            <th>Self_control</th>
-            <td><input class="prop_val" name="attr_self_control_radio" value="0" title="Self_control total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_self_control_radio" value="1" title="Self_control total" type="radio" checked/></td>
-            <td><input class="prop_val" name="attr_self_control_radio" value="2" title="Self_control total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_self_control_radio" value="3" title="Self_control total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_self_control_radio" value="4" title="Self_control total" type="radio" /></td>
-            <td><input class="prop_val" name="attr_self_control_radio" value="5" title="Self_control total" type="radio" /></td>
+            <th>Self Control</th>
+            <td><input class="prop_val" name="attr_self_control_radio" value="0" title="Self Control total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_self_control_radio" value="1" title="Self Control total" type="radio" checked/></td>
+            <td><input class="prop_val" name="attr_self_control_radio" value="2" title="Self Control total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_self_control_radio" value="3" title="Self Control total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_self_control_radio" value="4" title="Self Control total" type="radio" /></td>
+            <td><input class="prop_val" name="attr_self_control_radio" value="5" title="Self Control total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Courage</th>
             <td><input class="prop_val" name="attr_courage_radio" value="0" title="Courage total" type="radio" /></td>
@@ -1641,6 +1833,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Conscience</th>
             <td><input class="prop_val" name="attr_conscience_base" value="1" title="Conscience base" min="0" max="5" type="number" /></td>
             <td><input class="prop_val" name="attr_conscience_free" value="0" title="Conscience freebie" min="0" max="5" type="number" /></td>
@@ -1651,16 +1844,18 @@
             </td>
           </tr>
           <tr>
-            <th>Self_control</th>
-            <td><input class="prop_val" name="attr_self_control_base" value="1" title="Self_control base" min="0" max="5" type="number" /></td>
-            <td><input class="prop_val" name="attr_self_control_free" value="0" title="Self_control freebie" min="0" max="5" type="number" /></td>
-            <td><input class="prop_val" name="attr_self_control_xp" value="0" title="Self_control xp" min="0" max="5" type="number" /></td>
+            
+            <th>Self Control</th>
+            <td><input class="prop_val" name="attr_self_control_base" value="1" title="Self Control base" min="0" max="5" type="number" /></td>
+            <td><input class="prop_val" name="attr_self_control_free" value="0" title="Self Control freebie" min="0" max="5" type="number" /></td>
+            <td><input class="prop_val" name="attr_self_control_xp" value="0" title="Self Control xp" min="0" max="5" type="number" /></td>
             <td>
               <input class="prop_result" name="attr_self_control" value="0" type="hidden" />
-              <input class="prop_result" name="attr_self_control_disp" value="@{self_control}" type="number" title="Self_control total" disabled="true" />
+              <input class="prop_result" name="attr_self_control_disp" value="@{self_control}" type="number" title="Self Control total" disabled="true" />
             </td>
           </tr>
           <tr>
+            
             <th>Courage</th>
             <td><input class="prop_val" name="attr_courage_base" value="1" title="Courage base" min="0" max="5" type="number" /></td>
             <td><input class="prop_val" name="attr_courage_free" value="0" title="Courage freebie" min="0" max="5" type="number" /></td>
@@ -1670,19 +1865,19 @@
               <input class="prop_result" name="attr_courage_disp" value="@{courage}" type="number" title="Courage total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_virtues_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_virtues_base_disp" title="Virtues base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_virtues_base_disp" title="Virtues base"
             value="@{virtues_base}" type="number" disabled="true"/></td>
           
             <input name="attr_virtues_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_virtues_free_disp" title="Virtues free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_virtues_free_disp" title="Virtues free"
             value="@{virtues_free}" type="number" disabled="true"/></td>
           
             <input name="attr_virtues_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_virtues_xp_disp" title="Virtues xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_virtues_xp_disp" title="Virtues xp"
             value="@{virtues_xp}" type="number" disabled="true"/></td>
           
             <td></td>
@@ -1708,13 +1903,15 @@
     <input title="hide" name="attr_other_switch" style="width: 1em;display: inline-block;" type="checkbox" class="sheet-block-switch">
     <br />
     <div class="sheet-block-a">
-        
+      
+          
+    
     <div class="sheet-divcol">
       <h3 style="display: inline-block;">Pools</h3>
       <input title="details" name="attr_pools_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
       <br />
       <div class="sheet-block-a">
-        <table summary="pools basic table">
+        <table summary="Pools basic table">
           <thead>
             <tr>
               <td></td>
@@ -1731,6 +1928,7 @@
               <td>10</td>
             </tr>
           </thead>
+          
           <tr>
             <th>Humanity</th>
             <td><input class="prop_val" name="attr_humanity_radio" value="0" title="Humanity total" type="radio" checked/></td>
@@ -1745,6 +1943,7 @@
             <td><input class="prop_val" name="attr_humanity_radio" value="9" title="Humanity total" type="radio" /></td>
             <td><input class="prop_val" name="attr_humanity_radio" value="10" title="Humanity total" type="radio" /></td>
           </tr>
+          
           <tr>
             <th>Willpower</th>
             <td><input class="prop_val" name="attr_willpower_radio" value="0" title="Willpower total" type="radio" checked/></td>
@@ -1773,6 +1972,7 @@
               </tr>
             </thead>
           <tr>
+            
             <th>Humanity</th>
             <td><input class="prop_val" name="attr_humanity_base" value="0" title="Humanity base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_humanity_free" value="0" title="Humanity freebie" min="0" max="10" type="number" /></td>
@@ -1783,6 +1983,7 @@
             </td>
           </tr>
           <tr>
+            
             <th>Willpower</th>
             <td><input class="prop_val" name="attr_willpower_base" value="0" title="Willpower base" min="0" max="10" type="number" /></td>
             <td><input class="prop_val" name="attr_willpower_free" value="0" title="Willpower freebie" min="0" max="10" type="number" /></td>
@@ -1792,20 +1993,77 @@
               <input class="prop_result" name="attr_willpower_disp" value="@{willpower}" type="number" title="Willpower total" disabled="true" />
             </td>
           </tr>
-          <tr >
-            <th style="font-style: italic; border-top: solid; border-width: 1px 0;">Cost</th>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
           
             <input name="attr_pools_base" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_pools_base_disp" title="Pools base"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_pools_base_disp" title="Pools base"
             value="@{pools_base}" type="number" disabled="true"/></td>
           
             <input name="attr_pools_free" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_pools_free_disp" title="Pools free"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_pools_free_disp" title="Pools free"
             value="@{pools_free}" type="number" disabled="true"/></td>
           
             <input name="attr_pools_xp" value="0" type="hidden" />
-            <td style="border-top: solid; border-width: 1px 0;"><input name="attr_pools_xp_disp" title="Pools xp"
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_pools_xp_disp" title="Pools xp"
             value="@{pools_xp}" type="number" disabled="true"/></td>
+          
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+          
+    
+    <div class="sheet-divcol">
+      <h3 style="display: inline-block;">Merits And Flaws</h3>
+      <input title="details" name="attr_merits_and_flaws_switch" style="width: 1em;float: right;" type="checkbox" class="sheet-block-switch">
+      <br />
+      <div class="sheet-block-a">
+        <table summary="Merits And Flaws basic table">
+          <thead>
+            <tr>
+              <td></td>
+              <td>0</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="sheet-block-b">
+        <table summary="merits_and_flaws detail table">
+            <thead>
+              <tr>
+                <th></th>
+                <td>Base</td>
+                <td>Free</td>
+                <td>Xp</td>
+                <td>Total</td>
+              </tr>
+            </thead>
+          <tr>
+            <th style="font-style: italic; border-top: 0.1em solid #4d4d4d;">Cost</th>
+          
+            <input name="attr_merits_and_flaws_base" value="0" type="hidden" />
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_merits_and_flaws_base_disp" title="Merits And Flaws base"
+            value="@{merits_and_flaws_base}" type="number" disabled="true"/></td>
+          
+            <input name="attr_merits_and_flaws_free" value="0" type="hidden" />
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_merits_and_flaws_free_disp" title="Merits And Flaws free"
+            value="@{merits_and_flaws_free}" type="number" disabled="true"/></td>
+          
+            <input name="attr_merits_and_flaws_xp" value="0" type="hidden" />
+            <td style="border-top: 0.1em solid #4d4d4d;"><input name="attr_merits_and_flaws_xp_disp" title="Merits And Flaws xp"
+            value="@{merits_and_flaws_xp}" type="number" disabled="true"/></td>
           
             <td></td>
           </tr>
@@ -1821,7 +2079,7 @@
 </div>
 
 <script type="text/worker">
-const data = JSON.parse('{"title":"Vampire the Masquerade","subtitle":"20th Anniversary Edition","header":{"col1":{"fields":{"name":{},"player":{},"chronicle":{}}},"col2":{"fields":{"nature":{},"demeanor":{},"concept":{}}},"col3":{"fields":{"clan":{},"generation":{},"sire":{}}}},"sections":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":"","fields":{"attributes":{"free_cost":5,"mult_xp_cost":4,"val_start":1,"initial_base":1,"fields":{"physical":{"fields":{"strength":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"dexterity":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"stamina":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"social":{"fields":{"charisma":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"manipulation":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"appearance":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"mental":{"fields":{"perception":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"intelligence":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"wits":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"new_xp_cost":0,"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"abilities":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"fields":{"talents":{"fields":{"alertness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"athletics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"awareness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"brawl":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"empathy":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"expression":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"intimidation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"leadership":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"streetwise":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"subterfuge":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"skills":{"singluar":"skill","fields":{"animal_ken":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"crafts":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"drive":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"etiquette":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"firearms":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"larceny":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"melee":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"performance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"stealth":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"survival":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"knowledges":{"fields":{"academics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"computer":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"finance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"investigation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"law":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"medicine":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"occult":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"politics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"science":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"technology":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"advantages":{"fields":{"disciplines":{"free_cost":7,"mult_xp_cost":7,"mult_xp_cost_clan":5,"mult_xp_cost_caitiff":6,"new_xp_cost":10,"initial_base":1,"val_start":1,"fields":{},"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"backgrounds":{"free_cost":1,"fields":{},"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"virtues":{"free_cost":2,"mult_xp_cost":2,"val_max":5,"val_start":1,"initial_base":1,"fields":{"conscience":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":5,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"self_control":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":5,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"courage":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":5,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"new_xp_cost":0,"val_min":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"other":{"fields":{"pools":{"fields":{"humanity":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"willpower":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}}},"path":{"humanity":{"bearing":"normalcy"}},"clan":{"assamite":{"disciplines":["celerity","obfuscate","quietus"]},"brujah":{"disciplines":["celerity","potence","presence"]},"followers_of_set":{"disciplines":["obfuscate","presence","serpentis"]},"gangrel":{"disciplines":["animalism","fortitude","protean"]},"giovanni":{"disciplines":["dominate","necromancy","potence"]},"lasombra":{"disciplines":["dominate","obtenebration","potence"]},"malkavian":{"disciplines":["auspex","dementation","obfuscate"]},"nosferatu":{"disciplines":["animalism","obfuscate","potence"]},"ravnos":{"disciplines":["animalism","chimerstry","fortitude"]},"toreador":{"disciplines":["auspex","celerity","presence"]},"tremere":{"disciplines":["auspex","dominate","thaumaturgy"]},"tzimisce":{"disciplines":["animalism","auspex","vicissitude"]},"ventrue":{"disciplines":["dominate","fortitude","presence"]},"caitiff":{"disciplines":[]},"human":{"disciplines":[]},"werewolf":{"disciplines":["celerity","potence","protean"]},"mage":{"disciplines":["auspex","chimerstry","dominate","fortitude","presence","thaumaturgy"]},"faerie":{"disciplines":["animalism","auspex","chimerstry","celerity","obfuscate","protean"]},"ghost":{"disciplines":["auspex","chimerstry","dementation","dominate","presence","vicissitude"]},"demon":{"disciplines":["dominate","potence","fortitude","daimoinon","vicissitude"]}},"generation_table":{"hdr":["trait_max","blood_pool_max","blood_per_turn"],"3":[10,100,20],"4":[9,50,10],"5":[8,40,8],"6":[7,30,6],"7":[6,20,4],"8":[5,15,3],"9":[5,14,2],"10":[5,13,1],"11":[5,12,1],"12":[5,11,1],"13":[5,10,1]},"postfixes":["base","free","xp"]}');
+const data = JSON.parse('{"title":"Vampire the Masquerade","subtitle":"20th Anniversary Edition","header":{"col1":{"fields":{"name":{},"player":{},"chronicle":{}}},"col2":{"fields":{"nature":{},"demeanor":{},"concept":{}}},"col3":{"fields":{"clan":{},"generation":{},"sire":{}}}},"sections":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":"","fields":{"attributes":{"free_cost":5,"mult_xp_cost":4,"val_start":1,"initial_base":1,"fields":{"physical":{"fields":{"strength":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"dexterity":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"stamina":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"social":{"fields":{"charisma":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"manipulation":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"appearance":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"mental":{"fields":{"perception":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"intelligence":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"wits":{"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":5,"mult_xp_cost":4,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":10,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"new_xp_cost":0,"val_min":0,"val_max":10,"nameable":false,"field_type":"bar","base_calc":""},"abilities":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"fields":{"talents":{"fields":{"alertness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"athletics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"awareness":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"brawl":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"empathy":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"expression":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"intimidation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"leadership":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"streetwise":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"subterfuge":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"skills":{"singluar":"skill","fields":{"animal_ken":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"crafts":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"drive":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"etiquette":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"firearms":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"larceny":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"melee":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"performance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"stealth":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"survival":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"knowledges":{"fields":{"academics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"computer":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"finance":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"investigation":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"law":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"medicine":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"occult":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"politics":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"science":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"technology":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":2,"mult_xp_cost":2,"new_xp_cost":3,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"advantages":{"fields":{"disciplines":{"nameable":"true","field_type":"repeating_bar","free_cost":7,"mult_xp_cost":7,"mult_xp_cost_clan":5,"mult_xp_cost_caitiff":6,"new_xp_cost":10,"initial_base":1,"val_start":1,"fields":{},"val_min":0,"val_max":10,"base_calc":""},"backgrounds":{"nameable":"true","field_type":"repeating_bar","free_cost":1,"fields":{},"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"base_calc":""},"virtues":{"free_cost":2,"mult_xp_cost":2,"val_max":5,"val_start":1,"initial_base":1,"fields":{"conscience":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":5,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"self_control":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":5,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""},"courage":{"free_cost":2,"mult_xp_cost":2,"new_xp_cost":0,"val_start":1,"val_min":0,"val_max":5,"initial_base":1,"nameable":false,"field_type":"bar","base_calc":""}},"new_xp_cost":0,"val_min":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"other":{"fields":{"pools":{"fields":{"humanity":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"willpower":{"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""},"merits_and_flaws":{"field_type":"repeating_item_cost","nameable":true,"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"base_calc":""}},"free_cost":0,"mult_xp_cost":0,"new_xp_cost":0,"val_start":0,"val_min":0,"val_max":10,"initial_base":0,"nameable":false,"field_type":"bar","base_calc":""}}},"path":{"humanity":{"bearing":"normalcy"}},"clan":{"assamite":{"disciplines":["celerity","obfuscate","quietus"]},"brujah":{"disciplines":["celerity","potence","presence"]},"followers_of_set":{"disciplines":["obfuscate","presence","serpentis"]},"gangrel":{"disciplines":["animalism","fortitude","protean"]},"giovanni":{"disciplines":["dominate","necromancy","potence"]},"lasombra":{"disciplines":["dominate","obtenebration","potence"]},"malkavian":{"disciplines":["auspex","dementation","obfuscate"]},"nosferatu":{"disciplines":["animalism","obfuscate","potence"]},"ravnos":{"disciplines":["animalism","chimerstry","fortitude"]},"toreador":{"disciplines":["auspex","celerity","presence"]},"tremere":{"disciplines":["auspex","dominate","thaumaturgy"]},"tzimisce":{"disciplines":["animalism","auspex","vicissitude"]},"ventrue":{"disciplines":["dominate","fortitude","presence"]},"caitiff":{"disciplines":[]},"human":{"disciplines":[]},"werewolf":{"disciplines":["celerity","potence","protean"]},"mage":{"disciplines":["auspex","chimerstry","dominate","fortitude","presence","thaumaturgy"]},"faerie":{"disciplines":["animalism","auspex","chimerstry","celerity","obfuscate","protean"]},"ghost":{"disciplines":["auspex","chimerstry","dementation","dominate","presence","vicissitude"]},"demon":{"disciplines":["dominate","potence","fortitude","daimoinon","vicissitude"]}},"generation_table":{"hdr":["trait_max","blood_pool_max","blood_per_turn"],"3":[10,100,20],"4":[9,50,10],"5":[8,40,8],"6":[7,30,6],"7":[6,20,4],"8":[5,15,3],"9":[5,14,2],"10":[5,13,1],"11":[5,12,1],"12":[5,11,1],"13":[5,10,1]},"health":{"0":{"state":"Incapacitated","penalty":-100},"1":{"state":"Crippled","penalty":-5},"2":{"state":"Mauled","penalty":-2},"3":{"state":"Wounded","penalty":-2},"4":{"state":"Injured","penalty":-1},"5":{"state":"Hurt","penalty":-1},"6":{"state":"Bruised","penalty":0}},"postfixes":["base","free","xp"]}');
 "use strict";
 console.log(data);
 
@@ -1942,7 +2200,7 @@ function attach_property(name) {
   });
 }
 
-function attach_type(key_type, type) {
+function attach_type_bar(key_type, type) {
   console.log("attaching type", key_type);
 
   // handle no field case
@@ -2008,6 +2266,49 @@ function attach_type(key_type, type) {
   });
 }
 
+function attach_type_repeating_bar(type_name, data) {
+  on("change:repeating_" + type_name, function(eventInfo) {
+    var repeating_name = "repeating_" + type_name;
+    getSectionIDs("repeating_" + type_name, function(idArray) {
+      var attrs = [].concat(...idArray.map(x => [].concat(
+        repeating_name + "_" + x + "__base",
+        repeating_name + "_" + x + "__free",
+        repeating_name + "_" + x + "__xp",
+        repeating_name + "_" + x + "__name"
+      )));
+      getAttrs(attrs, function(v) {
+        console.log(eventInfo);
+        var b_tot = 0;
+        var f_tot = 0;
+        var xp_tot = 0;
+        for (x in idArray) {
+          id = idArray[x];
+          var name = repeating_name + "_" + id;
+          console.log("getting data for ", name);
+          var name_b = name + "__base";
+          var name_f = name + "__free";
+          var name_xp = name + "__xp";
+          var name_dis = name + "__name";
+          var b = parseInt(v[name_b], 10);
+          var f = parseInt(v[name_f], 10);
+          var xp = parseInt(v[name_xp], 10);
+          var dis = v[name_dis];
+          console.log(dis, " b:", b, " f:", f, " xp:", xp);
+          f_tot += f * data.free_cost;
+          b_tot += b;
+          xp_tot += xpCost(data.mult_xp_cost, data.new_xp_cost, b, f, xp);
+        }
+        var d = {}
+        d[type_name + "_base"] = b_tot;
+        d[type_name + "_free"] = f_tot;
+        d[type_name + "_xp"] = xp_tot;
+        console.log("setting attrs", d);
+        setAttrs(d);
+      });
+    });
+  });
+}
+
 function attach_section(name, section) {
   console.log("attaching section", name);
 
@@ -2018,12 +2319,79 @@ function attach_section(name, section) {
 
   for (var key_type in section.fields) {
     var type = section.fields[key_type];
-    attach_type(key_type, type);
+    if (type.field_type === "repeating_bar") {
+      attach_type_repeating_bar(key_type, type);
+    } else {
+      attach_type_bar(key_type, type);
+    }
   }
 
   // update field sums
   attach_field_sum(name, section.fields, "xp");
   attach_field_sum(name, section.fields, "free");
+}
+
+function attach_health(data) {
+  var health_deps = ["health_levels", "dmg_bash", "dmg_lethal", "dmg_aggravated"];
+  on(list_changed(health_deps), function(eventInfo) {
+    console.log("dammage changed");
+    getAttrs(health_deps, function(v) {
+      var dmg = {
+        bash: parseInt(v["dmg_bash"], 10),
+        leth: parseInt(v["dmg_lethal"], 10),
+        aggr: parseInt(v["dmg_aggravated"], 10)
+      };
+      var health_levels = parseInt(v["health_levels"], 10);
+      for (key in dmg) {
+        if (dmg[key] < 0) {
+          dmg[key] = 0;
+        }
+      }
+
+      var count = 0;
+      while (dmg["bash"] + dmg["leth"] + dmg["aggr"] > health_levels) {
+        if (dmg["bash"] > 1) {
+          console.log("carrying bashing damage to lethal");
+          dmg["bash"] -= 2;
+          dmg["leth"] += 1;
+        } else if (dmg["leth"] > 0 && dmg["bash"] > 0) {
+          console.log("carrying lethal/bashing damage to aggravated");
+          dmg["leth"] -= 1;
+          dmg["bash"] -= 1;
+          dmg["aggr"] += 1;
+        } else if (dmg["leth"] > 2) {
+          console.log("carrying lethal damage to aggravated");
+          dmg["leth"] -= 3;
+          dmg["aggr"] += 2;
+        } else if (dmg["aggr"] > 0) {
+          console.log("max damage reached");
+          dmg["bash"] = 0;
+          dmg["leth"] = 0;
+          dmg["aggr"] = health_levels;
+        }
+        // safeguard for infinite loop
+        if (count++ > 100) {
+          console.error("exceeded maximum loop count in health update");
+          break;
+        }
+      }
+      var health = health_levels - (dmg["bash"] + dmg["leth"] + dmg["aggr"]);
+      var penalty = 0;
+      var health_state = "OK";
+      if (data["health"][health] != undefined) {
+        penalty = data["health"][health]["penalty"];
+        health_state = data["health"][health]["state"];
+      }
+      setAttrs({
+        dmg_bash: dmg["bash"],
+        dmg_lethal: dmg["leth"],
+        dmg_aggravated: dmg["aggr"],
+        health: health,
+        wound_penalty: penalty,
+        health_state: health_state
+      });
+    });
+  });
 }
 
 function attach_data(data) {
@@ -2038,9 +2406,12 @@ function attach_data(data) {
     attach_section(key_sect, sect);
   }
 
-  // update field sums
+  // attach field sums
   attach_field_sum("total", data.sections.fields, "xp");
   attach_field_sum("total", data.sections.fields, "free");
+
+  // attach health
+  attach_health(data);
 }
 
 attach_data(data);
@@ -2068,46 +2439,6 @@ on("change:clan", function() {
 });
 */
 
-/*
-on("change:repeating_disciplines", function(eventInfo) {
-  getSectionIDs("repeating_disciplines", function(idArray) {
-    var attrs = [].concat(...idArray.map(x => [].concat(
-      "repeating_disciplines_" + x + "_base",
-      "repeating_disciplines_" + x + "_free",
-      "repeating_disciplines_" + x + "_xp")));
-    getAttrs(attrs, function(v) {
-      console.log(eventInfo);
-      var b_tot = 0;
-      var f_tot = 0;
-      var xp_tot = 0;
-      for (x in idArray) {
-        id = idArray[x];
-        var name = "repeating_disciplines_" + id;
-        console.log("getting data for ", name);
-        var name_b = name + "_base";
-        var name_f = name + "_free";
-        var name_xp = name + "_xp";
-        var name_dis = name + "_name";
-        var b = parseInt(v[name_b], 10);
-        var f = parseInt(v[name_f], 10);
-        var xp = parseInt(v[name_xp], 10);
-        var dis = v[name_dis];
-        console.log(dis, " b:", b, " f:", f, " xp:", xp);
-        f_tot += f * data.free_cost["discipline"];
-        b_tot += b;
-        xp_tot += xpCost("discipline", b, f, xp);
-      }
-      var d = {
-        base_discipline: b_tot,
-        free_discipline: f_tot,
-        xp_discipline: xp_tot
-      };
-      console.log("setting attrs", d);
-      setAttrs(d);
-    });
-  });
-});
-*/
 
 // vim: set et fenc=utf-8 ff=unix ft=javascript sts=0 sw=2 ts=2 :
 

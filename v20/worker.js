@@ -118,7 +118,7 @@ function attach_property(name) {
   });
 }
 
-function attach_type(key_type, type) {
+function attach_type_bar(key_type, type) {
   console.log("attaching type", key_type);
 
   // handle no field case
@@ -184,6 +184,49 @@ function attach_type(key_type, type) {
   });
 }
 
+function attach_type_repeating_bar(type_name, data) {
+  on("change:repeating_" + type_name, function(eventInfo) {
+    var repeating_name = "repeating_" + type_name;
+    getSectionIDs("repeating_" + type_name, function(idArray) {
+      var attrs = [].concat(...idArray.map(x => [].concat(
+        repeating_name + "_" + x + "__base",
+        repeating_name + "_" + x + "__free",
+        repeating_name + "_" + x + "__xp",
+        repeating_name + "_" + x + "__name"
+      )));
+      getAttrs(attrs, function(v) {
+        console.log(eventInfo);
+        var b_tot = 0;
+        var f_tot = 0;
+        var xp_tot = 0;
+        for (x in idArray) {
+          id = idArray[x];
+          var name = repeating_name + "_" + id;
+          console.log("getting data for ", name);
+          var name_b = name + "__base";
+          var name_f = name + "__free";
+          var name_xp = name + "__xp";
+          var name_dis = name + "__name";
+          var b = parseInt(v[name_b], 10);
+          var f = parseInt(v[name_f], 10);
+          var xp = parseInt(v[name_xp], 10);
+          var dis = v[name_dis];
+          console.log(dis, " b:", b, " f:", f, " xp:", xp);
+          f_tot += f * data.free_cost;
+          b_tot += b;
+          xp_tot += xpCost(data.mult_xp_cost, data.new_xp_cost, b, f, xp);
+        }
+        var d = {}
+        d[type_name + "_base"] = b_tot;
+        d[type_name + "_free"] = f_tot;
+        d[type_name + "_xp"] = xp_tot;
+        console.log("setting attrs", d);
+        setAttrs(d);
+      });
+    });
+  });
+}
+
 function attach_section(name, section) {
   console.log("attaching section", name);
 
@@ -194,12 +237,79 @@ function attach_section(name, section) {
 
   for (var key_type in section.fields) {
     var type = section.fields[key_type];
-    attach_type(key_type, type);
+    if (type.field_type === "repeating_bar") {
+      attach_type_repeating_bar(key_type, type);
+    } else {
+      attach_type_bar(key_type, type);
+    }
   }
 
   // update field sums
   attach_field_sum(name, section.fields, "xp");
   attach_field_sum(name, section.fields, "free");
+}
+
+function attach_health(data) {
+  var health_deps = ["health_levels", "dmg_bash", "dmg_lethal", "dmg_aggravated"];
+  on(list_changed(health_deps), function(eventInfo) {
+    console.log("dammage changed");
+    getAttrs(health_deps, function(v) {
+      var dmg = {
+        bash: parseInt(v["dmg_bash"], 10),
+        leth: parseInt(v["dmg_lethal"], 10),
+        aggr: parseInt(v["dmg_aggravated"], 10)
+      };
+      var health_levels = parseInt(v["health_levels"], 10);
+      for (key in dmg) {
+        if (dmg[key] < 0) {
+          dmg[key] = 0;
+        }
+      }
+
+      var count = 0;
+      while (dmg["bash"] + dmg["leth"] + dmg["aggr"] > health_levels) {
+        if (dmg["bash"] > 1) {
+          console.log("carrying bashing damage to lethal");
+          dmg["bash"] -= 2;
+          dmg["leth"] += 1;
+        } else if (dmg["leth"] > 0 && dmg["bash"] > 0) {
+          console.log("carrying lethal/bashing damage to aggravated");
+          dmg["leth"] -= 1;
+          dmg["bash"] -= 1;
+          dmg["aggr"] += 1;
+        } else if (dmg["leth"] > 2) {
+          console.log("carrying lethal damage to aggravated");
+          dmg["leth"] -= 3;
+          dmg["aggr"] += 2;
+        } else if (dmg["aggr"] > 0) {
+          console.log("max damage reached");
+          dmg["bash"] = 0;
+          dmg["leth"] = 0;
+          dmg["aggr"] = health_levels;
+        }
+        // safeguard for infinite loop
+        if (count++ > 100) {
+          console.error("exceeded maximum loop count in health update");
+          break;
+        }
+      }
+      var health = health_levels - (dmg["bash"] + dmg["leth"] + dmg["aggr"]);
+      var penalty = 0;
+      var health_state = "OK";
+      if (data["health"][health] != undefined) {
+        penalty = data["health"][health]["penalty"];
+        health_state = data["health"][health]["state"];
+      }
+      setAttrs({
+        dmg_bash: dmg["bash"],
+        dmg_lethal: dmg["leth"],
+        dmg_aggravated: dmg["aggr"],
+        health: health,
+        wound_penalty: penalty,
+        health_state: health_state
+      });
+    });
+  });
 }
 
 function attach_data(data) {
@@ -214,9 +324,12 @@ function attach_data(data) {
     attach_section(key_sect, sect);
   }
 
-  // update field sums
+  // attach field sums
   attach_field_sum("total", data.sections.fields, "xp");
   attach_field_sum("total", data.sections.fields, "free");
+
+  // attach health
+  attach_health(data);
 }
 
 attach_data(data);
@@ -244,45 +357,5 @@ on("change:clan", function() {
 });
 */
 
-/*
-on("change:repeating_disciplines", function(eventInfo) {
-  getSectionIDs("repeating_disciplines", function(idArray) {
-    var attrs = [].concat(...idArray.map(x => [].concat(
-      "repeating_disciplines_" + x + "_base",
-      "repeating_disciplines_" + x + "_free",
-      "repeating_disciplines_" + x + "_xp")));
-    getAttrs(attrs, function(v) {
-      console.log(eventInfo);
-      var b_tot = 0;
-      var f_tot = 0;
-      var xp_tot = 0;
-      for (x in idArray) {
-        id = idArray[x];
-        var name = "repeating_disciplines_" + id;
-        console.log("getting data for ", name);
-        var name_b = name + "_base";
-        var name_f = name + "_free";
-        var name_xp = name + "_xp";
-        var name_dis = name + "_name";
-        var b = parseInt(v[name_b], 10);
-        var f = parseInt(v[name_f], 10);
-        var xp = parseInt(v[name_xp], 10);
-        var dis = v[name_dis];
-        console.log(dis, " b:", b, " f:", f, " xp:", xp);
-        f_tot += f * data.free_cost["discipline"];
-        b_tot += b;
-        xp_tot += xpCost("discipline", b, f, xp);
-      }
-      var d = {
-        base_discipline: b_tot,
-        free_discipline: f_tot,
-        xp_discipline: xp_tot
-      };
-      console.log("setting attrs", d);
-      setAttrs(d);
-    });
-  });
-});
-*/
 
 // vim: set et fenc=utf-8 ff=unix ft=javascript sts=0 sw=2 ts=2 :

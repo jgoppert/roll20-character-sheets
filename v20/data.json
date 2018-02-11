@@ -118,6 +118,8 @@
       "advantages": {
         "fields": {
           "disciplines": {
+            "nameable": "true",
+            "field_type": "repeating_bar",
             "free_cost": 7,
             "mult_xp_cost": 7,
             "mult_xp_cost_clan": 5,
@@ -128,6 +130,8 @@
             "fields": {}
           },
           "backgrounds": {
+            "nameable": "true",
+            "field_type": "repeating_bar",
             "free_cost": 1,
             "fields": {}
           },
@@ -152,6 +156,10 @@
               "humanity": {},
               "willpower": {}
             }
+          },
+          "merits_and_flaws": {
+            "field_type": "repeating_item_cost",
+            "nameable": true
           }
         }
       }
@@ -237,6 +245,36 @@
     "11": [5, 12, 1],
     "12": [5, 11, 1],
     "13": [5, 10, 1]
+  },
+  "health": {
+    "0": {
+      "state": "Incapacitated",
+      "penalty": -100
+    },
+    "1": {
+      "state": "Crippled",
+      "penalty": -5
+    },
+    "2": {
+      "state": "Mauled",
+      "penalty": -2
+    },
+    "3": {
+      "state": "Wounded",
+      "penalty": -2
+    },
+    "4": {
+      "state": "Injured",
+      "penalty": -1
+    },
+    "5": {
+      "state": "Hurt",
+      "penalty": -1
+    },
+    "6": {
+      "state": "Bruised",
+      "penalty": 0
+    }
   },
   "postfixes": ["base", "free", "xp"]
 }

@@ -1,1 +1,3 @@
-This is a simple example character sheet. It's based on a simple Savage Worlds sheet, but it's by no means complete. Shows how to use most of the basic controls available when creating a Roll20 sheet.
+A vampire the masquerade 20th edition sheet with the goal of automating most of the tedious calculations.
+
+Background Image: Author: Paul Phönixweiß, free, https://www.toptal.com/designers/subtlepatterns/clean-gray-paper/
