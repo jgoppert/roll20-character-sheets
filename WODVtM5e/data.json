@@ -32,10 +32,11 @@
     "val_max": 5,
     "initial_base": 0,
     "nameable": false,
+    "specialty": false,
     "field_type": "bar",
-    "base_calc": "",
     "fields": {
       "attributes": {
+        "specialty": true,
         "mult_xp_cost": 4,
         "val_start": 1,
         "initial_base": 1,
@@ -66,6 +67,7 @@
       "abilities": {
         "mult_xp_cost": 2,
         "new_xp_cost": 3,
+        "specialty": true,
         "fields": {
           "talents": {
             "fields": {
@@ -109,51 +111,54 @@
           }
         }
       },
-      "advantages": {
+      "details": {
         "fields": {
           "disciplines": {
-            "nameable": "true",
-            "field_type": "repeating_bar",
             "mult_xp_cost": 7,
             "mult_xp_cost_clan": 5,
             "mult_xp_cost_caitiff": 6,
             "new_xp_cost": 10,
-            "initial_base": 1,
-            "val_start": 1,
-            "fields": {}
+            "initial_base": 0,
+            "val_start": 0,
+            "fields": {
+                "animalism": {},
+                "auspex": {},
+                "celerity": {},
+                "dominate": {},
+                "fortitude": {},
+                "obfuscate": {},
+                "potence": {},
+                "presence": {},
+                "protean": {},
+                "blood_sorcery": {}
+            }
           },
           "advantages and flaws": {
-            "nameable": "true",
-            "field_type": "repeating_bar",
+            "field_type": "name_val",
             "fields": {}
           },
-          "specialty": {
-            "nameable": "true",
-            "field_type": "repeating_bar",
-            "fields": {}
+          "other": {
+            "mult_xp_cost": 10,
+            "mult_xp_cost_clan": 10,
+            "mult_xp_cost_caitiff": 10,
+            "new_xp_cost": 10,
+            "initial_base": 1,
+            "val_start": 0,
+            "fields": {
+              "blood_potency": {
+              }
+            }
           }
         }
       }
     }
   },
   "clan": {
-    "assamite": {
-      "disciplines": ["celerity", "obfuscate", "quietus"]
-    },
     "brujah": {
       "disciplines": ["celerity", "potence", "presence"]
     },
-    "followers_of_set": {
-      "disciplines": ["obfuscate", "presence", "serpentis"]
-    },
     "gangrel": {
       "disciplines": ["animalism", "fortitude", "protean"]
-    },
-    "giovanni": {
-      "disciplines": ["dominate", "necromancy", "potence"]
-    },
-    "lasombra": {
-      "disciplines": ["dominate", "obtenebration", "potence"]
     },
     "malkavian": {
       "disciplines": ["auspex", "dementation", "obfuscate"]
@@ -168,10 +173,7 @@
       "disciplines": ["auspex", "celerity", "presence"]
     },
     "tremere": {
-      "disciplines": ["auspex", "dominate", "thaumaturgy"]
-    },
-    "tzimisce": {
-      "disciplines": ["animalism", "auspex", "vicissitude"]
+      "disciplines": ["auspex", "dominate", "blood_sorcery"]
     },
     "ventrue": {
       "disciplines": ["dominate", "fortitude", "presence"]
@@ -186,16 +188,16 @@
       "disciplines": ["celerity", "potence", "protean"]
     },
     "mage": {
-      "disciplines": ["auspex", "chimerstry", "dominate", "fortitude", "presence", "thaumaturgy"]
+      "disciplines": ["auspex", "dominate", "fortitude", "presence", "blood_sorcery"]
     },
     "faerie": {
-      "disciplines": ["animalism", "auspex", "chimerstry", "celerity", "obfuscate", "protean"]
+      "disciplines": ["animalism", "auspex", "celerity", "obfuscate", "protean"]
     },
     "ghost": {
-      "disciplines": ["auspex", "chimerstry", "dementation", "dominate", "presence", "vicissitude"]
+      "disciplines": ["auspex", "dominate", "presence"]
     },
     "demon": {
-      "disciplines": ["dominate", "potence", "fortitude", "daimoinon", "vicissitude"]
+      "disciplines": ["dominate", "potence", "fortitude"]
     }
   },
   "generation_table": {
@@ -212,33 +214,15 @@
     "12": [5, 11, 1],
     "13": [5, 10, 1]
   },
+  "hunger": {
+    "5": {
+      "state": "Torpor",
+      "penalty": 0
+    }
+  },
   "health": {
     "0": {
-      "state": "Incapacitated",
-      "penalty": -100
-    },
-    "1": {
-      "state": "Crippled",
-      "penalty": -5
-    },
-    "2": {
-      "state": "Mauled",
-      "penalty": -2
-    },
-    "3": {
-      "state": "Wounded",
-      "penalty": -2
-    },
-    "4": {
-      "state": "Injured",
-      "penalty": -1
-    },
-    "5": {
-      "state": "Hurt",
-      "penalty": -1
-    },
-    "6": {
-      "state": "Bruised",
+      "state": "Torpor",
       "penalty": 0
     }
   },

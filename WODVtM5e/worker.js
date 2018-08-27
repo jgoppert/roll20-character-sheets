@@ -26,7 +26,12 @@ function attach_field_sum(name, fields, postfix) {
       var d = {};
       var cost = 0;
       for (field in fields) {
-        cost += parseInt(v[field + "_" + postfix], 10);
+        var val = parseInt(v[field + "_" + postfix], 10);
+        if (isNaN(val)) {
+          console.log(field + "_" + postfix, " is NaN");
+        } else {
+          cost += val;
+        }
       }
       d[name + "_" + postfix] = cost;
       setAttrs(d);
@@ -94,7 +99,7 @@ function attach_property(name) {
   });
 }
 
-function attach_type_bar(key_type, type) {
+function attach_type_bar(key_type, type, data) {
   console.log("attaching type", key_type);
 
   // handle no field case
@@ -125,7 +130,7 @@ function attach_type_bar(key_type, type) {
   });
 
   // xp
-  var xp_deps = [].concat(...Object.keys(type.fields).map(x => [x + "_xp", x + "_base"]));
+  var xp_deps = [].concat(...Object.keys(type.fields).map(x => [x + "_xp", x + "_base", "clan"]));
   on(list_changed(xp_deps), function() {
     console.log(key_type + " xp deps changed");
     getAttrs(xp_deps, function(v) {
@@ -134,6 +139,14 @@ function attach_type_bar(key_type, type) {
       for (name in type.fields) {
         var b = parseInt(v[name + "_base"], 10);
         var xp = parseInt(v[name + "_xp"], 10);
+        if (key_type == "disciplines") {
+          var clan = v["clan"];
+          if (name in data.clan[clan].disciplines) {
+            console.log(name, "in clan", clan, "disciplines");
+          } else {
+            console.log(name, "not in clan", clan, "disciplines");
+          }
+        }
         cost += xpCost(type.mult_xp_cost, type.new_xp_cost, b, xp);
       }
       d[key_type + "_xp"] = cost;
@@ -143,44 +156,7 @@ function attach_type_bar(key_type, type) {
   });
 }
 
-function attach_type_repeating_bar(type_name, data) {
-  on("change:repeating_" + type_name, function(eventInfo) {
-    var repeating_name = "repeating_" + type_name;
-    getSectionIDs("repeating_" + type_name, function(idArray) {
-      var attrs = [].concat(...idArray.map(x => [].concat(
-        repeating_name + "_" + x + "__base",
-        repeating_name + "_" + x + "__xp",
-        repeating_name + "_" + x + "__name"
-      )));
-      getAttrs(attrs, function(v) {
-        console.log(eventInfo);
-        var b_tot = 0;
-        var xp_tot = 0;
-        for (x in idArray) {
-          id = idArray[x];
-          var name = repeating_name + "_" + id;
-          console.log("getting data for ", name);
-          var name_b = name + "__base";
-          var name_xp = name + "__xp";
-          var name_dis = name + "__name";
-          var b = parseInt(v[name_b], 10);
-          var xp = parseInt(v[name_xp], 10);
-          var dis = v[name_dis];
-          console.log(dis, " b:", b, " xp:", xp);
-          b_tot += b;
-          xp_tot += xpCost(data.mult_xp_cost, data.new_xp_cost, b, xp);
-        }
-        var d = {}
-        d[type_name + "_base"] = b_tot;
-        d[type_name + "_xp"] = xp_tot;
-        console.log("setting attrs", d);
-        setAttrs(d);
-      });
-    });
-  });
-}
-
-function attach_section(name, section) {
+function attach_section(name, section, data) {
   console.log("attaching section", name);
 
   // handle no field case
@@ -190,10 +166,8 @@ function attach_section(name, section) {
 
   for (var key_type in section.fields) {
     var type = section.fields[key_type];
-    if (type.field_type === "repeating_bar") {
-      attach_type_repeating_bar(key_type, type);
-    } else {
-      attach_type_bar(key_type, type);
+    if (type.field_type === "bar") {
+      attach_type_bar(key_type, type, data);
     }
   }
 
@@ -314,7 +288,7 @@ function attach_data(data) {
 
   for (var key_sect in data.sections.fields) {
     var sect = data.sections.fields[key_sect];
-    attach_section(key_sect, sect);
+    attach_section(key_sect, sect, data);
   }
 
   // attach field sums
@@ -332,25 +306,6 @@ attach_data(data);
 on("sheet:opened", function() {
   console.log("sheet opened");
 });
-
-/*
-on("change:clan", function() {
-  console.log("clan change");
-  // initialize to clan disciplines
-  getAttrs([].concat(discipline_names, ["clan"]), function(v) {
-    var d_set = {};
-    for (d in discipline_names) {
-      var discipline_name = v[discipline_names[d]];
-      console.log("discipline name", discipline_names[d], discipline_name);
-      if (d < clan_disciplines[v.clan].length) {
-        clan_discipline = clan_disciplines[v.clan][d];
-        d_set[discipline_names[d]] = clan_discipline;
-      }
-    }
-    setAttrs(d_set);
-  });
-});
-*/
 
 
 // vim: set et fenc=utf-8 ff=unix ft=javascript sts=0 sw=2 ts=2 :
