@@ -7,13 +7,12 @@ function list_changed(l) {
   return out;
 }
 
-function xpCost(k, new_cost, b, xp) {
+function xpCost(k, b, xp) {
   var cost = 0;
-  if (xp > 0) {
-    cost += k * (b - 1) * xp + k * xp * (xp + 1) / 2;
-    if (b === 0) {
-      cost += new_cost;
-    }
+  var i = b
+  while (i < xp) {
+    i += 1
+    cost += k*i
   }
   return cost;
 }
@@ -139,15 +138,20 @@ function attach_type_bar(key_type, type, data) {
       for (name in type.fields) {
         var b = parseInt(v[name + "_base"], 10);
         var xp = parseInt(v[name + "_xp"], 10);
-        if (key_type == "disciplines") {
+        var mult_xp_cost = type.mult_xp_cost;
+        if (key_type === "disciplines") {
           var clan = v["clan"];
-          if (name in data.clan[clan].disciplines) {
-            console.log(name, "in clan", clan, "disciplines");
+          if (clan === "caitiff") {
+            mult_xp_cost = type.mult_xp_cost_caitiff;
+            console.log("caitiff discipline");
+          } else if (data.clan[clan].disciplines.indexOf(name) > -1) {
+            mult_xp_cost = type.mult_xp_cost_clan;
+            console.log(name, "is a ", clan, "disciplines");
           } else {
-            console.log(name, "not in clan", clan, "disciplines");
+            console.log(name, "is not a", clan, "disciplines");
           }
         }
-        cost += xpCost(type.mult_xp_cost, type.new_xp_cost, b, xp);
+        cost += xpCost(mult_xp_cost, b, xp);
       }
       d[key_type + "_xp"] = cost;
       setAttrs(d);
