@@ -10,7 +10,7 @@ function list_changed(l) {
 function xpCost(k, b, xp) {
   var cost = 0;
   var i = b
-  while (i < xp) {
+  while (i < b + xp) {
     i += 1
     cost += k*i
   }
