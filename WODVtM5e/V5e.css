@@ -132,3 +132,86 @@ td {
 fieldset {
   border: none;
 }
+
+/* Roll Template */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/cinzel/v7/8vIJ7ww63mVu7gt79mT7.woff2) format('woff2');
+  }
+.sheet-rolltemplate-wod table {
+    width: 220px;
+    height: auto;
+    padding: 6px;
+    background: white;
+    border: 1px solid grey;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+    font-weight: bold;
+    color: black;
+    border-spacing: 0;
+    padding-bottom: 15px
+}
+
+.sheet-rolltemplate-wod table tbody {
+    display: block;
+    margin: 2px;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod th {
+    color: rgb(112, 0, 0);
+    padding: 15px 2px 2px 20px;
+    line-height: 1.21em;
+    font-size: 1.21em;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod td {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.0em;
+    vertical-align: top;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod .sheet-result {
+    font-size: 1.2em;
+    text-align: center;
+    color: rgb(112, 0, 0);
+    padding-bottom: 20px;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod .inlinerollresult  {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod .inlinerollresult.fullcrit {
+    color: #3FB315;
+    border: none;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod .inlinerollresult.fullfail {
+    color: #000000;
+    border: none;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod .inlinerollresult.importantroll {
+    color: #3FB315;
+    border: none;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
+
+.sheet-rolltemplate-wod hr {
+    margin-bottom: 5px;
+    margin-top: 2px;
+    font-family: 'Cinzel',"Courier New", Courier, monospace;
+}
