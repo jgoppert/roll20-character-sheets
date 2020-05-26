@@ -128,7 +128,8 @@
                 "potence": {},
                 "presence": {},
                 "protean": {},
-                "blood_sorcery": {}
+                "blood_sorcery": {},
+                "oblivion": {}
             }
           },
           "advantages and flaws": {
@@ -172,6 +173,9 @@
     },
     "ventrue": {
       "disciplines": ["dominate", "fortitude", "presence"]
+    },
+    "lasombra": {
+      "disciplines": ["dominate", "potence", "oblivion"]
     },
     "caitiff": {
       "disciplines": []
