@@ -157,7 +157,7 @@
       "disciplines": ["animalism", "fortitude", "protean"]
     },
     "malkavian": {
-      "disciplines": ["auspex", "dementation", "obfuscate"]
+      "disciplines": ["auspex", "dominate", "obfuscate"]
     },
     "nosferatu": {
       "disciplines": ["animalism", "obfuscate", "potence"]
