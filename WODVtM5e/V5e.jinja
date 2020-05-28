@@ -275,137 +275,169 @@
   </div>
   {% endfor %}
 
+  <!-- Notes -->
+  <div class="sheet-divrow">
+    <h2 style="display: inline-block;">Notes</h2>
+    <input title="hide" name="attr_basics_switch" style="width: max;display: inline-block;" type="checkbox" class="sheet-block-switch"/>
+    <br />
+    <div class="sheet-block-a">
+      <div class="sheet-divcol">
+        <h3>Description</h3>
+        <div class="sheet-block-a">
+          <textarea name="description" rows="30" cols="38"></textarea>
+        </div>
+        <div class="sheet-block-b">
+        </div>
+      </div>
+      <div class="sheet-divcol">
+        <h3>Possessions</h3>
+        <div class="sheet-block-a">
+          <textarea name="possessions" rows="30" cols="38"></textarea>
+        </div>
+        <div class="sheet-block-b">
+        </div>
+      </div>
+      <div class="sheet-divcol">
+        <h3>Journal</h3>
+        <div class="sheet-block-a">
+          <textarea name="history" rows="30" cols="38"></textarea>
+        </div>
+        <div class="sheet-block-b">
+        </div>
+      </div>
+    </div>
+    <div class="sheet-block-b">
+    </div>
+  </div>
 </div>
 
-{% raw %}
-<rolltemplate class="sheet-rolltemplate-wod">
-    <table>
-        <tbody>
-
-            <tr>
-                <th>{{name}}</th>
-            </tr>
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:2px solid rgb(112, 0, 0); " noshade>
-            </td>
-
-            {{#Rollname}}
-            <tr>
-                <td class="attr " style="font-size: 1.1em; ">{{Rollname}}</td>
-            </tr>
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            {{/Rollname}} {{#Roll}}
-            <tr>
-                <td class="attr ">Roll</td>
-            </tr>
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            <tr>
-                <td class="attr " style="padding-bottom: 8px; ">{{Roll}}</td>
-            </tr>
-            {{/Roll}} {{#DisciplineDetails}}
-            <tr>
-                <td class="attr " style="padding-bottom: 8px; ">{{DisciplineDetails}}</td>
-            </tr>
-            {{/DisciplineDetails}}{{#Normal}}
-            <tr>
-                <td class="attr ">Normal</td>
-            </tr>
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            <tr>
-                <td class="attr " style="padding-bottom: 8px; ">{{Normal}}</td>
-            </tr>
-            {{/Normal}} {{#NormalSuccesses}}
-            <tr>
-                <td class="attr ">Normal Successes</td>
-            </tr>
-            {{#NormalDice}}
-            <tr>
-                <td class="attr ">(Dice rolled: {{NormalDice}})</td>
-            </tr>
-            {{/NormalDice}}
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            <tr>
-                <td class="attr " style="padding-bottom: 8px;font-size: 24px; ">{{NormalSuccesses}}</td>
-            </tr>
-            {{/NormalSuccesses}}{{#Hunger}}
-            <tr>
-                <td class="attr ">Hunger</td>
-            </tr>
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            <tr>
-                <td class="attr " style="padding-bottom: 8px; ">{{Hunger}}</td>
-            </tr>
-            {{/Hunger}} {{#HungerSuccesses}}
-            <tr>
-                <td class="attr ">Hunger Successes</td>
-            </tr>
-            {{#HungerDice}}
-            <tr>
-                <td class="attr ">(Dice rolled: {{HungerDice}})</td>
-            </tr>
-            {{/HungerDice}}
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            <tr>
-                <td class="attr " style="font-size: 24px; ">{{HungerSuccesses}}</td>
-            </tr>
-            {{/HungerSuccesses}}{{#Successes}}
-            <tr>
-                <td class="attr ">Successes</td>
-            </tr>
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
-            </td>
-            <tr>
-                <td class="attr " style="font-size: 24px; ">{{Successes}}</td>
-            </tr>
-            {{/Successes}}
-
-            <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
-                <hr style="border-top:2px solid rgb(112, 0, 0); " noshade>
-            </td>
-
-            <tr>
-                <td class="attr ">{{#Miss}}{{Miss}}{{/Miss}}</td>
-            </tr>
-            <tr>
-                <td class="attr ">{{#Crit}}{{Crit}}{{/Crit}}</td>
-            </tr>
-            <tr>
-                <td class="attr ">{{#Messy}}{{Messy}}{{/Messy}}</td>
-            </tr>
-            <tr>
-                <td class="attr ">{{#Beast}}{{Beast}}{{/Beast}}</td>
-            </tr>
-            <tr>
-                <td class="attr " style="font-style: italic; ">{{#BeastTaunt}}{{BeastTaunt}}{{/BeastTaunt}}</td>
-            </tr>
-            <tr>
-                <td class="attr ">{{#Fate}}{{Fate}}{{/Fate}}</td>
-            </tr>
-            <tr>
-                <th style="padding: 15px 2px 0px 20px; "></th>
-            </tr>
-        </tbody>
-    </table>
-    {{Reroll}}
-</rolltemplate>
-{% endraw %}
 <script type="text/worker">
 const data = JSON.parse('{{ d.json_txt }}');
 {{ d.worker_js }}
 </script>
+
+{% raw %}
+<rolltemplate class="sheet-rolltemplate-wod">
+  <table>
+    <tbody>
+      <tr>
+        <th>{{name}}</th>
+      </tr>
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:2px solid rgb(112, 0, 0); " noshade>
+      </td>
+
+      {{#Rollname}}
+      <tr>
+        <td class="attr " style="font-size: 1.1em; ">{{Rollname}}</td>
+      </tr>
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      {{/Rollname}} {{#Roll}}
+      <tr>
+        <td class="attr ">Roll</td>
+      </tr>
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr " style="padding-bottom: 8px; ">{{Roll}}</td>
+      </tr>
+      {{/Roll}} {{#DisciplineDetails}}
+      <tr>
+        <td class="attr " style="padding-bottom: 8px; ">{{DisciplineDetails}}</td>
+      </tr>
+      {{/DisciplineDetails}}{{#Normal}}
+      <tr>
+        <td class="attr ">Normal</td>
+      </tr>
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr " style="padding-bottom: 8px; ">{{Normal}}</td>
+      </tr>
+      {{/Normal}} {{#NormalSuccesses}}
+      <tr>
+        <td class="attr ">Normal Successes</td>
+      </tr>
+      {{#NormalDice}}
+      <tr>
+        <td class="attr ">(Dice rolled: {{NormalDice}})</td>
+      </tr>
+      {{/NormalDice}}
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr " style="padding-bottom: 8px;font-size: 24px; ">{{NormalSuccesses}}</td>
+      </tr>
+      {{/NormalSuccesses}}{{#Hunger}}
+      <tr>
+        <td class="attr ">Hunger</td>
+      </tr>
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr " style="padding-bottom: 8px; ">{{Hunger}}</td>
+      </tr>
+      {{/Hunger}} {{#HungerSuccesses}}
+      <tr>
+        <td class="attr ">Hunger Successes</td>
+      </tr>
+      {{#HungerDice}}
+      <tr>
+        <td class="attr ">(Dice rolled: {{HungerDice}})</td>
+      </tr>
+      {{/HungerDice}}
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr " style="font-size: 24px; ">{{HungerSuccesses}}</td>
+      </tr>
+      {{/HungerSuccesses}}{{#Successes}}
+      <tr>
+        <td class="attr ">Successes</td>
+      </tr>
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:1px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr " style="font-size: 24px; ">{{Successes}}</td>
+      </tr>
+      {{/Successes}}
+      <td style="height: 2px; text-align: center; width: 200px " valign="middle ">
+        <hr style="border-top:2px solid rgb(112, 0, 0); " noshade>
+      </td>
+      <tr>
+        <td class="attr ">{{#Miss}}{{Miss}}{{/Miss}}</td>
+      </tr>
+      <tr>
+        <td class="attr ">{{#Crit}}{{Crit}}{{/Crit}}</td>
+      </tr>
+      <tr>
+        <td class="attr ">{{#Messy}}{{Messy}}{{/Messy}}</td>
+      </tr>
+      <tr>
+        <td class="attr ">{{#Beast}}{{Beast}}{{/Beast}}</td>
+      </tr>
+      <tr>
+        <td class="attr " style="font-style: italic; ">{{#BeastTaunt}}{{BeastTaunt}}{{/BeastTaunt}}</td>
+      </tr>
+      <tr>
+        <td class="attr ">{{#Fate}}{{Fate}}{{/Fate}}</td>
+      </tr>
+      <tr>
+        <th style="padding: 15px 2px 0px 20px; "></th>
+      </tr>
+    </tbody>
+  </table>
+  {{Reroll}}
+</rolltemplate>
+{% endraw %}
 
 </body>
 
