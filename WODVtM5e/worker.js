@@ -180,7 +180,7 @@ function attach_section(name, section, data) {
 }
 
 function attach_health(data) {
-  var health_deps = ["health_levels", "dmg_superficial", "dmg_aggravated"];
+  var health_deps = ["health_max", "dmg_superficial", "dmg_aggravated"];
   on(list_changed(health_deps), function(eventInfo) {
     console.log("damage changed");
     getAttrs(health_deps, function(v) {
@@ -188,7 +188,7 @@ function attach_health(data) {
         sup: parseInt(v["dmg_superficial"], 10),
         aggr: parseInt(v["dmg_aggravated"], 10)
       };
-      var health_levels = parseInt(v["health_levels"], 10);
+      var health_max = parseInt(v["health_max"], 10);
       for (key in dmg) {
         if (dmg[key] < 0) {
           dmg[key] = 0;
@@ -196,7 +196,7 @@ function attach_health(data) {
       }
 
       var count = 0;
-      while (dmg["sup"] + dmg["aggr"] > health_levels) {
+      while (dmg["sup"] + dmg["aggr"] > health_max) {
         if (dmg["sup"] > 1) {
           console.log("carrying superficial damage to aggravated");
           dmg["sup"] -= 2;
@@ -204,7 +204,7 @@ function attach_health(data) {
         } else if (dmg["aggr"] > 0) {
           console.log("max damage reached");
           dmg["sup"] = 0;
-          dmg["aggr"] = health_levels;
+          dmg["aggr"] = health_max;
         }
         // safeguard for infinite loop
         if (count++ > 100) {
@@ -212,7 +212,7 @@ function attach_health(data) {
           break;
         }
       }
-      var health = health_levels - (dmg["sup"] + dmg["aggr"]);
+      var health = health_max - (dmg["sup"] + dmg["aggr"]);
       var penalty = 0;
       var health_state = "OK";
       if (data["health"][health] != undefined) {
@@ -231,7 +231,7 @@ function attach_health(data) {
 }
 
 function attach_will(data) {
-  var will_deps = ["will_levels", "will_superficial", "will_aggravated"];
+  var will_deps = ["will_max", "will_superficial", "will_aggravated"];
   on(list_changed(will_deps), function(eventInfo) {
     console.log("will changed");
     getAttrs(will_deps, function(v) {
@@ -239,7 +239,7 @@ function attach_will(data) {
         sup: parseInt(v["will_superficial"], 10),
         aggr: parseInt(v["will_aggravated"], 10)
       };
-      var will_levels = parseInt(v["will_levels"], 10);
+      var will_max = parseInt(v["will_max"], 10);
       for (key in dmg) {
         if (dmg[key] < 0) {
           dmg[key] = 0;
@@ -247,7 +247,7 @@ function attach_will(data) {
       }
 
       var count = 0;
-      while (dmg["sup"] + dmg["aggr"] > will_levels) {
+      while (dmg["sup"] + dmg["aggr"] > will_max) {
         if (dmg["sup"] > 1) {
           console.log("carrying superficial damage to aggravated");
           dmg["sup"] -= 2;
@@ -255,7 +255,7 @@ function attach_will(data) {
         } else if (dmg["aggr"] > 0) {
           console.log("max damage reached");
           dmg["sup"] = 0;
-          dmg["aggr"] = will_levels;
+          dmg["aggr"] = will_max;
         }
         // safeguard for infinite loop
         if (count++ > 100) {
@@ -263,7 +263,7 @@ function attach_will(data) {
           break;
         }
       }
-      var will = will_levels - (dmg["sup"] + dmg["aggr"]);
+      var will = will_max - (dmg["sup"] + dmg["aggr"]);
       var penalty = 0;
       var will_state = "OK";
       if (data["will"][will] != undefined) {

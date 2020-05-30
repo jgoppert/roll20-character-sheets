@@ -221,8 +221,8 @@
   },
   "health": {
     "0": {
-      "state": "Torpor",
-      "penalty": 0
+      "state": "Impaired",
+      "penalty": -2
     }
   },
   "will": {
