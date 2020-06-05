@@ -213,6 +213,8 @@ function attach_health(data) {
         }
       }
       var health = health_max - (dmg["sup"] + dmg["aggr"]);
+      var health_total_max = 2*health_max;
+      var health_total = health_total_max - (dmg["sup"] + 2*dmg["aggr"]);
       var penalty = 0;
       var health_state = "OK";
       if (data["health"][health] != undefined) {
@@ -223,6 +225,8 @@ function attach_health(data) {
         dmg_superficial: dmg["sup"],
         dmg_aggravated: dmg["aggr"],
         health: health,
+        health_total: health_total,
+        health_total_max: health_total_max,
         wound_penalty: penalty,
         health_state: health_state
       });
@@ -270,10 +274,14 @@ function attach_will(data) {
         penalty = data["will"][will]["penalty"];
         will_state = data["will"][will]["state"];
       }
+      var will_total_max = 2*will_max;
+      var will_total = will_total_max - (dmg["sup"] + 2*dmg["aggr"]);
       setAttrs({
         will_superficial: dmg["sup"],
         will_aggravated: dmg["aggr"],
         will: will,
+        will_total: will_total,
+        will_total_max: will_total_max,
         will_penalty: penalty,
         will_state: will_state
       });

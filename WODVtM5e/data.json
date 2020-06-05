@@ -183,6 +183,9 @@
     "human": {
       "disciplines": []
     },
+    "animal": {
+      "disciplines": []
+    },
     "werewolf": {
       "disciplines": ["celerity", "potence", "protean"]
     },
