@@ -129,7 +129,8 @@
                 "presence": {},
                 "protean": {},
                 "blood_sorcery": {},
-                "oblivion": {}
+                "oblivion": {},
+                "thin-blood-alchemy": {}
             }
           },
           "advantages and flaws": {
@@ -176,6 +177,9 @@
     },
     "lasombra": {
       "disciplines": ["dominate", "potence", "oblivion"]
+    },
+    "thin-blood": {
+      "disciplines": ["thin-blood-alchemy"]
     },
     "caitiff": {
       "disciplines": []
