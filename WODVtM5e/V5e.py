@@ -8,7 +8,7 @@ def flatten_tree(tree, props=None):
     if props is None:
         props = tree.keys()
         if "fields" in props:
-            props.remove("fields")
+            tree.pop("fields")
     if "fields" not in tree.keys():
         return
     for field_name, field in tree["fields"].iteritems():
@@ -35,3 +35,5 @@ jinja_env = Environment(
 
 with open('V5e.html', 'w') as f:
     f.write(jinja_env.get_template('V5e.jinja').render(d=data))
+
+print('character sheet generated! Upload V5e.html and V5e.css to roll20.')
